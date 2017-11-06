@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+
 
 class EventDetailViewController: UIViewController {
     
@@ -14,7 +16,6 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
     
     
 }

@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import CoreLocation
+
 
 
 class EventDetailViewController: UIViewController {
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
-    
 }
-
-

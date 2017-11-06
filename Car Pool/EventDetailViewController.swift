@@ -13,6 +13,7 @@ import CarpoolKit
 class EventDetailViewController: UIViewController {
         var text: String?
     
+    @IBOutlet weak var eventInfoLabel: UILabel!
     
     
     

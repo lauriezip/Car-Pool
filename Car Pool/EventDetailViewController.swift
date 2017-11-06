@@ -11,7 +11,8 @@ import UIKit
 
 
 class EventDetailViewController: UIViewController {
-        var text: String?
+     var labelText: String?
+
     
     @IBOutlet weak var eventInfoLabel: UILabel!
     
@@ -20,6 +21,8 @@ class EventDetailViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.eventInfoLabel.text = labelText
+
         
         
     }

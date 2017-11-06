@@ -8,13 +8,22 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
-
+class RootViewController: UITableViewController {
+var events: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+        
+    }
 
 }
 

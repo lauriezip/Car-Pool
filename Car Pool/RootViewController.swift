@@ -23,10 +23,12 @@ class RootViewController: UITableViewController {
         }
         
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let secondVC = segue.destination as? TripDetailViewController
-        secondVC?.firstVCtext = description
+        let tripDetailVC = segue.destination as? TripDetailViewController
+        let indexPath = tableView.indexPathForSelectedRow
+        let trip = trips[(indexPath?.row)!]
+            
     }
     
     
@@ -37,10 +39,10 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-       cell.textLabel?.text = trips[indexPath.row].event.description
+        cell.textLabel?.text = trips[indexPath.row].event.description
         if cell.isSelected == true
         {
-           return cell
+            return cell
         }
         else
         {
@@ -51,10 +53,5 @@ class RootViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        //self.performSegue(withIdentifier: "ViewEventDetailSegue", sender: trips)
-    }
-
 }
 

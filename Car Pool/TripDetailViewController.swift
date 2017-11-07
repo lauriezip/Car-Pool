@@ -13,9 +13,11 @@ import UIKit
 class TripDetailViewController: UIViewController {
      var labelText: String?
      var firstVCtext = ""
+    
 
     
     @IBOutlet weak var eventInfoLabel: UILabel!
+    
     
     
     
@@ -24,8 +26,13 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         self.eventInfoLabel.text = labelText
 
-        
-        
-    }
+        }
+    
+    
+//    func onEventsDescription() {
+//        if let trip = trips {
+//            
+//        }
+//    }
     
 }

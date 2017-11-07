@@ -23,10 +23,12 @@ class RootViewController: UITableViewController {
         }
         
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let secondVC = segue.destination as? TripDetailViewController
-        secondVC?.firstVCtext = description
+        let tripDetailVC = segue.destination as? TripDetailViewController
+        let indexPath = tableView.indexPathForSelectedRow
+        let trip = trips[(indexPath?.row)!]
+            
     }
     
 

@@ -13,9 +13,11 @@ import UIKit
 class TripDetailViewController: UIViewController {
      var labelText: String?
      var firstVCtext = ""
+    
 
     
     @IBOutlet weak var eventInfoLabel: UILabel!
+    
     
     
     

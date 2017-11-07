@@ -28,7 +28,8 @@ class RootViewController: UITableViewController {
         let tripDetailVC = segue.destination as? TripDetailViewController
         let indexPath = tableView.indexPathForSelectedRow
         let trip = trips[(indexPath?.row)!]
-            
+        tripDetailVC?.trip = trip
+
     }
     
     

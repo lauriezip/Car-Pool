@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
-
+import CarpoolKit
 
 class TripDetailViewController: UIViewController {
+     var trip: Trip!
      var labelText: String?
      var firstVCtext = ""
     

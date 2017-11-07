@@ -9,6 +9,7 @@
 import UIKit
 import CarpoolKit
 
+
 class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
@@ -32,8 +33,6 @@ class RootViewController: UITableViewController {
 
     }
     
-
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trips.count
         
@@ -47,15 +46,11 @@ class RootViewController: UITableViewController {
         if isClaimed {
             cell.backgroundColor = .clear
         } else {
-            cell.backgroundColor = .red
+            //cell.backgroundColor = .red
         }
         return cell
 }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-       
-    }
 
 }
 

@@ -10,25 +10,26 @@ import UIKit
 import CarpoolKit
 
 class TripDetailViewController: UIViewController {
-     var trip: Trip!
-     var labelText: String?
-     var firstVCtext = ""
+    var trip: Trip!
+    var labelText: String?
+    var firstVCtext = ""
     
-
+    
     
     @IBOutlet weak var eventInfoLabel: UILabel!
     
+    @IBOutlet weak var eventInfo1Label: UILabel!
     
+    @IBOutlet weak var eventInfo2Label: UILabel!
     
+    @IBOutlet weak var eventInfo3Label: UILabel!
     
-  
+    @IBOutlet weak var eventInfo4Label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.eventInfoLabel.text = labelText
-
-        
-        
+               self.eventInfoLabel.text = labelText
     }
-
     
+   
 }

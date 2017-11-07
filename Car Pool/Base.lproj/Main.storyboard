@@ -36,12 +36,13 @@
                             <outlet property="delegate" destination="Ove-8C-ygP" id="GcJ-j8-5ll"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="53J-Tg-Pgw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZN-UQ-qu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="191"/>
+            <point key="canvasLocation" x="-212" y="190.25487256371815"/>
         </scene>
-        <!--EventDetailViewController-->
+        <!--Event Details-->
         <scene sceneID="C1r-DS-A8I">
             <objects>
                 <viewController title="EventDetailViewController" id="s3O-Y2-8RI" customClass="TripDetailViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,14 +59,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmN-Df-wdj">
-                                <rect key="frame" x="16" y="106" width="343" height="21"/>
+                                <rect key="frame" x="16" y="221" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jE-59-maq">
-                                <rect key="frame" x="16" y="56" width="343" height="21"/>
+                                <rect key="frame" x="16" y="145" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -80,7 +81,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gQ-kv-1Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.80000000000001" y="185.75712143928038"/>
+            <point key="canvasLocation" x="508" y="185.75712143928038"/>
+        </scene>
+        <!--CreateTripViewController-->
+        <scene sceneID="rIT-6a-g7S">
+            <objects>
+                <viewController title="CreateTripViewController" id="OXH-QN-OZD" customClass="CreateTripViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qw9-Ra-vah"/>
+                        <viewControllerLayoutGuide type="bottom" id="cOl-jH-CCt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EXu-bl-3pa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gC-yY-E6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215.2" y="185.75712143928038"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2x2-r6-aCo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wwd-mz-M97" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="msj-gD-hGD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ove-8C-ygP" kind="relationship" relationship="rootViewController" id="g4x-zG-pMy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sx-xN-zTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-962" y="190"/>
         </scene>
     </scenes>
 </document>

@@ -14,6 +14,7 @@
 		497C4B601FB0E77E0074B6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */; };
 		497C4B631FB0E77E0074B6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B611FB0E77E0074B6C2 /* LaunchScreen.storyboard */; };
 		9187CE951FB1007200354FE5 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187CE941FB1007200354FE5 /* CreateTripViewController.swift */; };
+		9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */; };
 		ACA55E406B5B405983566F13 /* Pods_Car_Pool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8940F49EFA6045E41400D1C9 /* Pods_Car_Pool.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		497C4B641FB0E77E0074B6C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8940F49EFA6045E41400D1C9 /* Pods_Car_Pool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Pool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187CE941FB1007200354FE5 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D9E31221AE25EE7143392B34 /* Pods-Car Pool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Pool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */,
 				497C4B611FB0E77E0074B6C2 /* LaunchScreen.storyboard */,
 				497C4B641FB0E77E0074B6C2 /* Info.plist */,
+				9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */,
 			);
 			path = "Car Pool";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497C4B631FB0E77E0074B6C2 /* LaunchScreen.storyboard in Resources */,
+				9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */,
 				497C4B601FB0E77E0074B6C2 /* Assets.xcassets in Resources */,
 				497C4B5E1FB0E77E0074B6C2 /* Main.storyboard in Resources */,
 			);
@@ -188,10 +192,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CarpoolKit/CarpoolKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCommunity/FirebaseCommunity.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UDatePicker/UDatePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarpoolKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCommunity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UDatePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

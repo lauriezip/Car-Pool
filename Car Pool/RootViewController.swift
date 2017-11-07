@@ -25,7 +25,7 @@ class RootViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let secondVC = segue.destination as? EventDetailViewController
+        let secondVC = segue.destination as? TripDetailViewController
         secondVC?.firstVCtext = description
     }
     

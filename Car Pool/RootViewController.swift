@@ -24,7 +24,10 @@ class RootViewController: UITableViewController {
         
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        let secondVC = segue.destination as? EventDetailViewController
+        secondVC?.firstVCtext = description
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,6 +44,16 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
        cell.textLabel?.text = trips[indexPath.row].event.description
+        if cell.isSelected == true
+        {
+           return cell
+        }
+        else
+        {
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.red
+            cell.selectedBackgroundView = bgColorView
+        }
         return cell
     }
     

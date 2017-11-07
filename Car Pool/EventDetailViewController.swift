@@ -7,22 +7,25 @@
 //
 
 import UIKit
-import CarpoolKit
+
 
 
 class EventDetailViewController: UIViewController {
-        var text: String?
+     var labelText: String?
+     var firstVCtext = ""
+
     
     @IBOutlet weak var eventInfoLabel: UILabel!
     
     
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.eventInfoLabel.text = labelText
+
+        
         
     }
     
-    
 }
-
-

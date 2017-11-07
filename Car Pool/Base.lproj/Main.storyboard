@@ -98,10 +98,19 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
+                                <rect key="frame" x="166" y="484" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Claim "/>
+                                <connections>
+                                    <action selector="onClaimButtonPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="d91-nT-ghj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="claimLegButton" destination="R0q-9d-4Bs" id="Jf0-34-EqN"/>
                         <outlet property="eventInfoLabel" destination="U3O-LW-Rlv" id="9aR-uD-I1n"/>
                     </connections>
                 </viewController>

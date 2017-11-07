@@ -11,24 +11,27 @@ import UIKit
 
 
 class TripDetailViewController: UIViewController {
-     var labelText: String?
-     var firstVCtext = ""
+    var labelText: String?
+    var firstVCtext = ""
     
-
+    
     
     @IBOutlet weak var eventInfoLabel: UILabel!
     
     
+    @IBOutlet weak var claimLegButton: UIButton!
     
     
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventInfoLabel.text = labelText
-
+        
         
         
     }
-
     
+        
+
+
 }

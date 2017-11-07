@@ -12,6 +12,7 @@ import UIKit
 
 class EventDetailViewController: UIViewController {
      var labelText: String?
+     var firstVCtext = ""
 
     
     @IBOutlet weak var eventInfoLabel: UILabel!

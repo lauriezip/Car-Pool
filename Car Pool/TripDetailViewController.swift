@@ -34,6 +34,8 @@ class TripDetailViewController: UIViewController {
 
     }
  
-    
+    func showTripDetails() {
+        
+    }
    
 }

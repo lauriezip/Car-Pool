@@ -136,6 +136,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="531772268.602121">
                                     <!--2017-11-07 18:31:08 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="onDatePickerButton:" destination="OXH-QN-OZD" eventType="valueChanged" id="U6c-Xc-s7d"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

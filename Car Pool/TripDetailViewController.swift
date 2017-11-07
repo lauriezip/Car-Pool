@@ -28,8 +28,12 @@ class TripDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               self.eventInfoLabel.text = labelText
+        eventInfoLabel.text = trip.event.description
+        eventInfo1Label.text = trip.dropOff?.driver?.name
+        eventInfo2Label.text = trip.pickUp?.driver?.name
+
     }
+ 
     
    
 }

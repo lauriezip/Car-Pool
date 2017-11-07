@@ -1,68 +1,178 @@
+import FirebaseCommunity
 import CoreLocation
+import PromiseKit
 
 public enum API {
-
+    /// if `false` you should be showing the login
     public static var isAuthorized: Bool {
-        return true
+        return Auth.auth().currentUser != nil
     }
 
-    public static func fetchTripsOnce(completion: @escaping ([Trip]) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    public enum Error: Swift.Error {
+        case notAuthorized
+        case noChild
+        case noChildren
+        case noSuchTrip
+        case decode
+        case legAndTripAreNotRelated
+    }
 
-            let trips = fakeEvents.enumerated().map {
-                Trip(id: "\($0.0)",
-                    event: $0.1,
-                    pickUp: Leg(id: UUID().uuidString, driver: fakeUsers.maybe),
-                    dropOff: Leg(id: UUID().uuidString, driver: fakeUsers.maybe))
-            }
-
-            completion(trips)
+    /// returns the current list of trips, once
+    public static func fetchTripsOnce(completion: @escaping (Result<[Trip]>) -> Void) {
+        firstly {
+            Database.fetch(path: "trips")
+        }.then { bar -> [String: [String: Any]] in
+            guard let foo = bar.value as? [String: [String: Any]] else { throw API.Error.decode }
+            return foo
+        }.then {
+            when(fulfilled: $0.map{ Trip.make(key: $0, json: $1) })
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
         }
     }
 
-    public static func update(user: User, name: String) {
-        UserDefaults.standard.set(name, forKey: "username")
+    public static func observeTrips(completion: @escaping (Result<[Trip]>) -> Void) {
+        Database.database().reference().child("trips").observe(.value) { snapshot in
+            guard let foo = snapshot.value as? [String: [String: Any]] else {
+                return completion(.failure(API.Error.noChildren))
+            }
+            firstly {
+                when(fulfilled: foo.map{ Trip.make(key: $0, json: $1) })
+            }.then {
+                completion(.success($0))
+            }.catch {
+                completion(.failure($0))
+            }
+        }
+    }
+
+    /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
+    public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation, completion: @escaping (Result<Trip>) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return DispatchQueue.main.async {
+                completion(.failure(Error.notAuthorized))
+            }
+        }
+
+        let geohash = Geohash(location: location).value
+
+        let eventDict: [String: Any] = [
+            "location": geohash,
+            "description": desc,
+            "time": time.timeIntervalSince1970,
+            "owner": uid
+        ]
+        let eventRef = Database.database().reference().child("events").childByAutoId()
+        eventRef.setValuesForKeys(eventDict)
+
+        API.fetchUser(id: uid) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let user):
+                let tripRef = Database.database().reference().child("trips").childByAutoId()
+                tripRef.setValuesForKeys([
+                    "dropOff": [uid: user.name ?? "Anonymous Parent"],
+                    "event": eventDict,
+                    "owner": uid
+                ])
+
+                let event = Event(key: eventRef.key, description: desc, owner: user, time: time, geohash: geohash)
+                let trip = Trip(key: tripRef.key, event: event, pickUp: nil, dropOff: Leg(driver: user))
+                completion(.success(trip))
+            }
+        }
+    }
+
+    public static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snap in
+            do {
+                completion(.success(try snap.value(key: uid)))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /// if there is no error, completes with nil
+    public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return DispatchQueue.main.async {
+                completion(Error.notAuthorized)
+            }
+        }
+        API.fetchUser(id: uid) { result in
+            switch result {
+            case .success(let user):
+                Database.database().reference().child("trips").child(trip.key).updateChildValues([
+                    "pickUp": [user.key: user.name ?? "Anonymous Parent"]
+                ])
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+
+    /// if there is no error, completes with nil
+    public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return DispatchQueue.main.async {
+                completion(Error.notAuthorized)
+            }
+        }
+        API.fetchUser(id: uid) { result in
+            switch result {
+            case .success(let user):
+                Database.database().reference().child("trips").child(trip.key).updateChildValues([
+                    "dropOff": [user.key: user.name ?? "Anonymous Parent"]
+                ])
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
     }
 }
 
-private let fakeUsers = [
-    User(id: "0", name: "Akiva", phone: 0),
-    User(id: "1", name: "Akash", phone: 0),
-    User(id: "2", name: "Naina", phone: 0),
-    User(id: "3", name: "Riyazh", phone: 0),
-    User(id: "4", name: "Shannon", phone: 0),
-    User(id: "5", name: "Nathan", phone: 0),
-    User(id: "6", name: "Aleshia", phone: 0),
-    User(id: "7", name: "Max", phone: 0),
-    User(id: "8", name: "Ernesto", phone: 0),
-    User(id: "9", name: "Jess", phone: 0),
-    User(id: "10", name: "Josh", phone: 0),
-    User(id: "11", name: "Laurie", phone: 0),
-    User(id: "12", name: "Alex", phone: 0),
-    User(id: "13", name: "Gary", phone: 0),
-    User.current
-]
+public enum Result<T> {
+    case success(T)
+    case failure(Swift.Error)
+}
 
-private let fakeEvents = [
-    Event(id: "0", description: "Take Johnny to band-camp", time: Date(), location: CLLocation()),
-    Event(id: "1", description: "Visit Grandma in hospital", time: Date(), location: CLLocation()),
-    Event(id: "2", description: "Take Arya to faceless men HQ", time: Date(), location: CLLocation()),
-    Event(id: "3", description: "Dentist Appt. for Bill", time: Date(), location: CLLocation()),
-    Event(id: "4", description: "Drop off Will at The-Upside-Down", time: Date(), location: CLLocation()),
-]
-
-
-extension Array {
-    public var sample: Element {
-        let n = Int(arc4random_uniform(UInt32(count)))
-        return self[n]
+extension DataSnapshot {
+    func value<T: Decodable & Keyed>(key: String) throws -> T {
+        guard let value = self.value else { throw API.Error.noChild }
+        let data = try JSONSerialization.data(withJSONObject: value)
+        var foo: T = try JSONDecoder().decode(T.self, from: data)
+        foo.key = key
+        return foo
     }
 
-    var maybe: Element? {
-        if arc4random() % 3 == 0 {
-            return nil
-        } else {
-            return sample
+    func array<T: Decodable & Keyed>() throws -> [T] {
+        guard let values = self.value as? [String: Any] else { throw API.Error.noChildren }
+
+        return try values.map {
+            let data = try JSONSerialization.data(withJSONObject: $0.value)
+            var foo: T = try JSONDecoder().decode(T.self, from: data)
+            foo.key = $0.key
+            return foo
         }
     }
+}
+
+extension Database {
+    static func fetch(path key: String) -> Promise<DataSnapshot> {
+        return Promise<DataSnapshot> { fulfill, reject in
+            database().reference().child(key).observeSingleEvent(of: .value) { snapshot in
+                fulfill(snapshot)
+            }
+        }
+    }
+}
+
+protocol Keyed {
+    var key: String! { get set }
 }

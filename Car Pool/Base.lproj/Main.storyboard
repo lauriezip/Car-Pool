@@ -31,7 +31,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="s3O-Y2-8RI" kind="show" id="Rxi-b7-Vsv"/>
+                                    <segue destination="s3O-Y2-8RI" kind="show" identifier="ViewEventDetailSegue" id="Rxi-b7-Vsv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

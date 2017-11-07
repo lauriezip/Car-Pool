@@ -26,13 +26,9 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         self.eventInfoLabel.text = labelText
 
-        }
-    
-    
-//    func onEventsDescription() {
-//        if let trip = trips {
-//            
-//        }
-//    }
+        
+        
+    }
+
     
 }

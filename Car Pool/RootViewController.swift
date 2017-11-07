@@ -32,6 +32,7 @@ class RootViewController: UITableViewController {
 
     }
     
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trips.count
@@ -40,19 +41,21 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        cell.textLabel?.text = trips[indexPath.row].event.description
-        if cell.isSelected == true
-        {
-            return cell
-        }
-        else
-        {
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = UIColor.red
-            cell.selectedBackgroundView = bgColorView
+       cell.textLabel?.text = trips[indexPath.row].event.description
+        let trip = trips[indexPath.row]
+        let isClaimed = trip.dropOff.isClaimed && trip.pickUp.isClaimed
+        if isClaimed {
+            cell.backgroundColor = .clear
+        } else {
+            cell.backgroundColor = .red
         }
         return cell
-    }
+}
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+       
+    }
+
 }
 

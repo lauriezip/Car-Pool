@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class EventDetailViewController: UIViewController {
+class TripDetailViewController: UIViewController {
      var labelText: String?
      var firstVCtext = ""
 

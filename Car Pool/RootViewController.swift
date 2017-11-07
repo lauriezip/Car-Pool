@@ -50,15 +50,15 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         let trip = trips[indexPath.row]
-        let isClaimed = (trip.dropOff?.isClaimed ?? false) && (trip.pickUp?.isClaimed ?? false)
-        if isClaimed {
-            cell.backgroundColor = .clear
-        } else {
-            //cell.backgroundColor = .red
-        }
+//        let isClaimed = (trip.dropOff?.isClaimed ?? false) && (trip.pickUp?.isClaimed ?? false)
+//        if isClaimed {
+//            cell.backgroundColor = .clear
+//        } else {
+//            //cell.backgroundColor = .red
+//        }
         return cell
     }
-    
+
     
 }
 

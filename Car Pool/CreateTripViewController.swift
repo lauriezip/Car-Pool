@@ -10,7 +10,26 @@ import UIKit
 import CarpoolKit
 
 
+
 class CreateTripViewController: UIViewController{
+    
+//    let datePicker: UDatePicker?
+//    
+//    // ...
+//    
+//    func showDatePicker() {
+//        if datePicker == nil {
+//            datePicker = datePicker(frame: view.frame, willDisappear: { date in
+//                if date != nil {
+//                    print("select date \(date)")
+//                }
+//            })
+//        }
+//        
+//        datePicker.picker.date = NSDate()
+//        datePicker?.present(self)
+//    }
+
     
     @IBOutlet weak var datePickerView: UIDatePicker!
     var selectDate = Date()

@@ -32,6 +32,7 @@ class TripDetailViewController: UIViewController {
         eventInfo1Label.text = trip.dropOff?.driver.name
         eventInfo2Label.text = trip.pickUp?.driver.name
         eventInfo3Label.text = trip.event.key
+        
 
     }
  

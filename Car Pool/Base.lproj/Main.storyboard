@@ -18,17 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0O-YN-7Mc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Create Trip"/>
-                            <connections>
-                                <segue destination="OXH-QN-OZD" kind="show" id="eyD-p6-bfv"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" id="Hhp-q4-B33">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hhp-q4-B33" id="pcF-Zw-eT0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -44,7 +36,17 @@
                             <outlet property="delegate" destination="Ove-8C-ygP" id="GcJ-j8-5ll"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="53J-Tg-Pgw"/>
+                    <navigationItem key="navigationItem" id="53J-Tg-Pgw">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gMV-Y8-YXc">
+                            <rect key="frame" x="149.5" y="7" width="76" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Create Trip"/>
+                            <connections>
+                                <segue destination="OXH-QN-OZD" kind="show" id="pvR-9e-cc1"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZN-UQ-qu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-RW-DjN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="385" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="531772268.602121">
                                     <!--2017-11-07 18:31:08 +0000-->

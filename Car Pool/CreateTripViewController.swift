@@ -13,23 +13,23 @@ import CarpoolKit
 
 class CreateTripViewController: UIViewController{
     
-//    let datePicker: UDatePicker?
-//    
-//    // ...
-//    
-//    func showDatePicker() {
-//        if datePicker == nil {
-//            datePicker = datePicker(frame: view.frame, willDisappear: { date in
-//                if date != nil {
-//                    print("select date \(date)")
-//                }
-//            })
-//        }
-//        
-//        datePicker.picker.date = NSDate()
-//        datePicker?.present(self)
-//    }
-
+    //    let datePicker: UDatePicker?
+    //
+    //    // ...
+    //
+    //    func showDatePicker() {
+    //        if datePicker == nil {
+    //            datePicker = datePicker(frame: view.frame, willDisappear: { date in
+    //                if date != nil {
+    //                    print("select date \(date)")
+    //                }
+    //            })
+    //        }
+    //
+    //        datePicker.picker.date = NSDate()
+    //        datePicker?.present(self)
+    //    }
+    
     
     @IBOutlet weak var datePickerView: UIDatePicker!
     var selectDate = Date()
@@ -39,7 +39,7 @@ class CreateTripViewController: UIViewController{
         super.viewDidLoad()
         datePickerView.date = selectDate
         
-//        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
+        //        API.createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation, completion: @escaping (Trip) -> Void)
     }
     
     @IBAction func onDatePickerButton(_ sender: Any) {
@@ -52,10 +52,25 @@ class CreateTripViewController: UIViewController{
         let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
         datePickerView.date = randomDate!
         
-        
-        
-        
-        
     }
     
+    func createTrip (eventDescription: String, eventTime: Date, eventLocation: CLLocation, completion: @escaping (Trip) -> Void) {
+        
+        let event = Event(id: UUID().uuidString, description: eventDescription, time: eventTime, location: eventLocation)
+        let leg1 = Leg(id: UUID().uuidString, driver: User.current)
+        let leg2 = Leg(id: UUID().uuidString, driver: nil)
+        let trip = Trip(id: UUID().uuidString, event: event, pickUp: leg1, dropOff: leg2)
+        fakeTrips.insert(trip, at: 0)
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                completion(trip)
+            }
+            
+        }
+    }
+    
+    
 }
+
+

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4270CF726AF7441ABD427723DE5D4976'
+               BlueprintIdentifier = 'EEB61EAFE124AA69F66A04CF0248C508'
                BlueprintName = 'CarpoolKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CarpoolKit.framework'>

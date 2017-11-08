@@ -21,9 +21,6 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var eventInfo2Label: UILabel!
     
-    @IBOutlet weak var claimLegButton: UIButton!
-    
-    
     @IBOutlet weak var eventInfo4Label: UILabel!
     
     override func viewDidLoad() {
@@ -31,14 +28,28 @@ class TripDetailViewController: UIViewController {
         self.eventInfoLabel.text = labelText
         
         
-
     }
  
     func showTripDetails() {
+        let userId = Auth.auth().currentUser?.uid
+        let eventRef = Database.database().reference().child("events").childByAutoId()
+        eventRef.observe(of: .value, with: { (snapshot) in
+//        let event = snapshot.value as? [String: Any] else { return }
+//            eventInfoLabel.description
         
+       
+//        refHandle = eventRef.observe(DataEventType.value, with: { (snapshot) in
+//            let event = snapshot.value as? [String : AnyObject] ?? [:]
+        
+         //let event = Event(key: eventRef.key, description: desc, owner: user, time: time, geohash: geohash)
     }
     
         
 
 
+}
+    
+    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+    }
+    
 }

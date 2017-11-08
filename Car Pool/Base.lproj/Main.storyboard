@@ -153,6 +153,36 @@
             </objects>
             <point key="canvasLocation" x="116" y="-509"/>
         </scene>
+        <!--MapViewController-->
+        <scene sceneID="k3m-eK-OFx">
+            <objects>
+                <viewController title="MapViewController" id="18t-ig-cr1" customClass="MapViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aba-5s-8MC"/>
+                        <viewControllerLayoutGuide type="bottom" id="R5H-EM-uhe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3qw-9e-wqr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fef-Fl-IxS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="18t-ig-cr1" id="61b-Cc-OUR"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="fef-Fl-IxS" id="bmS-LU-nrx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yzj-vG-QHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="809" y="-510"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rqd-KJ-2MJ">
             <objects>

@@ -7,6 +7,6 @@ target 'Car Pool' do
 
   # Pods for Car Pool
   pod 'CarpoolKit', :git => 'https://github.com/codebasesav/CarpoolKit.git', :branch => 'master'
-  pod 'UDatePicker'
+  
 
 end

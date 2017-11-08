@@ -14,7 +14,7 @@ import CarpoolKit
 class CreateTripViewController: UIViewController{
     
 //    let datePicker: UDatePicker?
-//    
+//
 //    // ...
 //    
 //    func showDatePicker() {
@@ -37,25 +37,25 @@ class CreateTripViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePickerView.date = selectDate
+        //datePickerView.date = selectDate
         
 //        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
     }
     
-    @IBAction func onDatePickerButton(_ sender: Any) {
-        let secondsSinceOriginDate = Date().timeIntervalSince(datePickerView.minimumDate!)
-        let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1
-        let today = Date(timeIntervalSinceNow: 0)
-        let gregorian  = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        var offsetComponents = DateComponents()
-        offsetComponents.day = -Int(day - 1)
-        let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
-        datePickerView.date = randomDate!
-        
-        
-        
-        
-        
-    }
+//    @IBAction func onDatePickerButton(_ sender: Any) {
+//        let secondsSinceOriginDate = Date().timeIntervalSince(datePickerView.minimumDate!)
+//        let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1
+//        let today = Date(timeIntervalSinceNow: 0)
+//        let gregorian  = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+//        var offsetComponents = DateComponents()
+//        offsetComponents.day = -Int(day - 1)
+//        let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
+//        datePickerView.date = randomDate!
+//        
+//        
+//        
+//        
+//        
+//    }
     
 }

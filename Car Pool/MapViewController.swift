@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self as! CLLocationManagerDelegate
+        locationManager.delegate = self as? CLLocationManagerDelegate 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

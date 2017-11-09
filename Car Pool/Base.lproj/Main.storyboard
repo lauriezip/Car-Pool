@@ -150,9 +150,9 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb6-3z-fbs">
-                                <rect key="frame" x="284" y="607" width="46" height="30"/>
+                                <rect key="frame" x="271" y="607" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Show Map"/>
                                 <connections>
                                     <segue destination="18t-ig-cr1" kind="show" id="Bdc-3v-7AG"/>
                                 </connections>

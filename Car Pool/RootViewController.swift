@@ -16,7 +16,7 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-         //performSegue(withIdentifier: "CreateTrip", sender: self)
+         
     }
     
     override func viewDidLoad() {

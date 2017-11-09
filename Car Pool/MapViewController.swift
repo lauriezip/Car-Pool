@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        locationManager.delegate = self as? CLLocationManagerDelegate 
+        locationManager.delegate = self  
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -49,7 +50,7 @@ class MapViewController: UIViewController {
     }
 }
 
-extension RootViewController: MKMapViewDelegate{
+extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -58,7 +59,7 @@ extension RootViewController: MKMapViewDelegate{
     }
 }
 
-extension RootViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else { return }
         //mapView.showsUserLocation = true

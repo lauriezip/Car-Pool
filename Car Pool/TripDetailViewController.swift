@@ -53,42 +53,77 @@ class TripDetailViewController: UIViewController {
 
 
 }
+
+class Rider{
     
-//    @IBAction func acceptButtonTapped(_ sender: UIButton) {
-//         let alert = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .Alert)
-//        let claimAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-//        myAlert.addAction(claimAction)
-//        self.presentViewController(myAlert, animated: true, completion: nil);
+    var firstName = ""
+    var lastName = ""
+    var phoneNumber = ""
+    var email = ""
+    var password = ""
+    var picture = ""
+    //let uid: String
+    
+    // Initialize from Firebase(test)
+//    init(authData: FAuth) {
+//        //  uid = authData.uid
+//        email = authData.providerData["email"] as! String
+//        password = authData.providerData["provider"] as! String
 //    }
+    init(uidAddress: String)
+    {
+        //self.uid = uidAddress
+    }
+    
+    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: String)//, uid: String)
+    {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.email = email
+        self.password = password
+        self.picture = picture
+        // self.uid = uid
+    }
+    
+}
 
-
-//}
-
-///// if there is no error, completes with nil
-//public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    claim("pickUp", trip: trip, completion: completion)
-//}
-//
-///// if there is no error, completes with nil
-//public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    claim("dropOff", trip: trip, completion: completion)
-//}
-//
-//static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    firstly {
-//        auth()
-//        }.then { _ -> Promise<User> in
-//            guard let uid = Auth.auth().currentUser?.uid else {
-//                throw Error.notAuthorized
-//            }
-//            return API.fetchUser(id: uid)
-//        }.then { user -> Void in
-//            Database.database().reference().child("trips").child(trip.key).updateChildValues([
-//                key: [user.key: user.name ?? "Anonymous Parent"]
-//                ])
-//            completion(nil)
-//        }.catch {
-//            completion($0)
-//    }
-//}
-
+class Trips{
+    var driver:Rider?
+    var firstName = ""
+    var lastName = ""
+    var phoneNumber = ""
+    var email = ""
+    var fromStreetAddress = ""
+    var toStreetAddress = ""
+    var pickUpTime = ""
+    var notes = ""
+    var postedTime = ""
+    var capacity = ""
+    var startingCapacity = ""
+    var riders:[Rider]?
+    var postId = ""
+    
+    init(rider:Rider, fromStreetAddress:String, toStreetAddress:String, pickUpTime: String, notes:String, postedTime: String, capacity: String, startingCapacity:String, postId:String)
+    {
+        self.driver = rider
+        self.firstName = rider.firstName
+        self.lastName = rider.lastName
+        self.phoneNumber = rider.phoneNumber
+        self.email = rider.email
+        self.fromStreetAddress = fromStreetAddress
+        
+        self.toStreetAddress = toStreetAddress
+        self.postedTime = postedTime
+        self.pickUpTime = pickUpTime
+        self.capacity = capacity
+        self.startingCapacity = startingCapacity
+        self.notes = notes
+        self.postId = postId
+        
+    }
+    
+    func addRider(rider:Rider){
+        self.riders?.append(rider)
+    }
+}

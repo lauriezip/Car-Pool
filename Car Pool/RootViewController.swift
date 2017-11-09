@@ -39,8 +39,8 @@ class RootViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController{
         let indexPath = tableView.indexPathForSelectedRow
-        let trip = trips[(indexPath?.row)!]
-            tripDetailVC.trip = trip
+         tripDetailVC.trip = trips[(indexPath?.row)!]
+            
         }
     }
     

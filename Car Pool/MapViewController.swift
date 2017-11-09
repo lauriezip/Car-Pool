@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         locationManager.delegate = self as? CLLocationManagerDelegate 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -38,10 +39,10 @@ class MapViewController: UIViewController {
             if let response = response {
                 //                print(response.mapItems)
                 self.mapView.addAnnotations(response.mapItems)
-                //                for mapItem in response.mapItems{
-                //                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
-                //                    self.mapView.addAnnotation(mapItem.placemark)
-                //                }
+                                for mapItem in response.mapItems{
+                                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
+                                    self.mapView.addAnnotation(mapItem.placemark)
+                                }
                 
             }
         }

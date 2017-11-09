@@ -8,12 +8,12 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
+
 
 class TripDetailViewController: UIViewController {
     var labelText: String?
     var firstVCtext = ""
-    
+    var trip: Trip!
     
     
     @IBOutlet weak var eventInfoLabel: UILabel!
@@ -29,7 +29,7 @@ class TripDetailViewController: UIViewController {
         eventInfoLabel.text = trip.event.description
         eventInfo1Label.text = trip.dropOff?.driver.name
         eventInfo2Label.text = trip.pickUp?.driver.name
-        eventInfo3Label.text = trip.event.key
+        eventInfoLabel.text = trip.event.key
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,13 +54,13 @@ class TripDetailViewController: UIViewController {
 
 }
     
-    @IBAction func acceptButtonTapped(_ sender: UIButton) {
-         let alert = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .Alert)
-        let claimAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        myAlert.addAction(claimAction)
-        self.presentViewController(myAlert, animated: true, completion: nil);
-    }
-    
+//    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+//         let alert = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .Alert)
+//        let claimAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+//        myAlert.addAction(claimAction)
+//        self.presentViewController(myAlert, animated: true, completion: nil);
+//    }
+
 
 //}
 

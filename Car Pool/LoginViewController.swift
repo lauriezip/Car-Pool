@@ -10,7 +10,7 @@ import UIKit
 import CarpoolKit
 import FirebaseCommunity
 
-let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification")
+//let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification")
 
 class LoginViewController: UIViewController{
     var activityIndicator: UIActivityIndicatorView!

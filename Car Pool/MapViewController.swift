@@ -55,6 +55,7 @@ extension MapViewController: MKMapViewDelegate{
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
         
+        
         //search(for: "pizza")
     }
 }
@@ -63,6 +64,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else { return }
         //mapView.showsUserLocation = true
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

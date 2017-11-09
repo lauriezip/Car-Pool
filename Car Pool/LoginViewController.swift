@@ -16,8 +16,8 @@ class LoginViewController: UIViewController{
     var activityIndicator: UIActivityIndicatorView!
     
     
-  
-
+    
+    
     
     @IBOutlet weak var onLoginButton: UIButton!
     
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController{
         activityIndicator.isHidden = true
         self.view.addSubview(activityIndicator)
         
-}
+    }
     
     @IBAction func loginSignupSegmentChanged(_ sender: UISegmentedControl) {
         switch loginSignUpSegment.selectedSegmentIndex {

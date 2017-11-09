@@ -16,7 +16,7 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-         
+        
     }
     
     override func viewDidLoad() {
@@ -38,8 +38,8 @@ class RootViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController{
-        let indexPath = tableView.indexPathForSelectedRow
-         tripDetailVC.trip = trips[(indexPath?.row)!]
+            let indexPath = tableView.indexPathForSelectedRow
+            tripDetailVC.trip = trips[(indexPath?.row)!]
             
         }
     }
@@ -54,20 +54,20 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         let trip = trips[indexPath.row]
-//        let isClaimed = (trip.dropOff?.claimPickUp ?? false) && (trip.pickUp?.isClaimed ?? false)
-//        if isClaimed {
-//            cell.backgroundColor = .clear
-//        } else {
-//            cell.backgroundColor = .red
-//        }
+        //        let isClaimed = (trip.dropOff?.claimPickUp ?? false) && (trip.pickUp?.isClaimed ?? false)
+        //        if isClaimed {
+        //            cell.backgroundColor = .clear
+        //        } else {
+        //            cell.backgroundColor = .red
+        //        }
         return cell
-}
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         
     }
-
+    
     
 }
 

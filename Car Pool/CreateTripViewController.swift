@@ -50,9 +50,9 @@ class CreateTripViewController: UIViewController{
         super.viewDidLoad()
         
         
-//        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
-//    }
-//
+        //        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
+        //    }
+        //
     }
 }
 

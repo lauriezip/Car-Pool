@@ -14,7 +14,7 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-         
+        
     }
     
     override func viewDidLoad() {
@@ -53,13 +53,13 @@ class RootViewController: UITableViewController {
         cell.textLabel?.text = trips[indexPath.row].event.description
         let trip = trips[indexPath.row]
         return cell
-}
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         
     }
-
+    
     
 }
 

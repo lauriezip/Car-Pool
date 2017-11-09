@@ -58,7 +58,7 @@ class RootViewController: UITableViewController {
 //        if isClaimed {
 //            cell.backgroundColor = .clear
 //        } else {
-//            //cell.backgroundColor = .red
+//            cell.backgroundColor = .red
 //        }
         return cell
     }

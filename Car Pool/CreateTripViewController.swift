@@ -9,27 +9,35 @@
 import UIKit
 import CarpoolKit
 
-
+protocol DatePickerViewDelegate {
+    func cancelPressed()
+    func donePressed()
+}
 
 class CreateTripViewController: UIViewController{
     
-//    let datePicker: UDatePicker?
-//
-//    // ...
-//    
-//    func showDatePicker() {
-//        if datePicker == nil {
-//            datePicker = datePicker(frame: view.frame, willDisappear: { date in
-//                if date != nil {
-//                    print("select date \(date)")
-//                }
-//            })
-//        }
-//        
-//        datePicker.picker.date = NSDate()
-//        datePicker?.present(self)
-//    }
-
+    var delegate: DatePickerViewDelegate?
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var date: String?
+    
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        delegate?.cancelPressed()
+    }
+    
+    
+    @IBAction func donePressed(sender: AnyObject) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.dateFormat = "dd MMM HH:mm"
+        let strDate = dateFormatter.string(from: self.datePicker.date)
+        date = strDate
+        delegate?.donePressed()
+        
+    }
     
     @IBOutlet weak var datePickerView: UIDatePicker!
     var selectDate = Date()
@@ -37,25 +45,10 @@ class CreateTripViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //datePickerView.date = selectDate
+        
         
 //        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
-    }
-    
-//    @IBAction func onDatePickerButton(_ sender: Any) {
-//        let secondsSinceOriginDate = Date().timeIntervalSince(datePickerView.minimumDate!)
-//        let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1
-//        let today = Date(timeIntervalSinceNow: 0)
-//        let gregorian  = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-//        var offsetComponents = DateComponents()
-//        offsetComponents.day = -Int(day - 1)
-//        let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
-//        datePickerView.date = randomDate!
-//        
-//        
-//        
-//        
-//        
 //    }
-    
+//
+    }
 }

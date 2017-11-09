@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
@@ -17,7 +18,8 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self as? CLLocationManagerDelegate 
+        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+        locationManager.delegate = self  
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -38,29 +40,31 @@ class MapViewController: UIViewController {
             if let response = response {
                 //                print(response.mapItems)
                 self.mapView.addAnnotations(response.mapItems)
-                //                for mapItem in response.mapItems{
-                //                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
-                //                    self.mapView.addAnnotation(mapItem.placemark)
-                //                }
+                                for mapItem in response.mapItems{
+                                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
+                                    self.mapView.addAnnotation(mapItem.placemark)
+                                }
                 
             }
         }
     }
 }
 
-extension RootViewController: MKMapViewDelegate{
+extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
+        
         
         //search(for: "pizza")
     }
 }
 
-extension RootViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else { return }
         //mapView.showsUserLocation = true
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

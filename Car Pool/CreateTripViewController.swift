@@ -14,9 +14,9 @@ import CoreLocation
 
 class CreateTripViewController: UIViewController {
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var datePickerView: UIDatePicker!
-    var selectDate = Date()
+    var date: String?
     
     
     override func viewDidLoad() {

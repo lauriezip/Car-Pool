@@ -8,8 +8,7 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
-import PromiseKit
+
 
 class TripDetailViewController: UIViewController {
     var labelText: String?

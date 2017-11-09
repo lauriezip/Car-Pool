@@ -37,11 +37,9 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.5.0):
     - PromiseKit/CorePromise
-  - UDatePicker (1.0.0)
 
 DEPENDENCIES:
   - CarpoolKit (from `https://github.com/codebasesav/CarpoolKit.git`, branch `master`)
-  - UDatePicker
 
 EXTERNAL SOURCES:
   CarpoolKit:
@@ -60,8 +58,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
-  UDatePicker: eaab279a207b3946e50cbed375b77b45df10758a
 
-PODFILE CHECKSUM: e5ae80b49a6c224c4d5ef6beb928a6eb5605da65
+PODFILE CHECKSUM: 3dbf2d5c454853abfadb2080ecdd7e11ba822b5e
 
 COCOAPODS: 1.3.1

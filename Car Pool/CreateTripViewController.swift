@@ -13,22 +13,23 @@ import CarpoolKit
 
 class CreateTripViewController: UIViewController{
     
-    //    let datePicker: UDatePicker?
-    //
-    //    // ...
-    //
-    //    func showDatePicker() {
-    //        if datePicker == nil {
-    //            datePicker = datePicker(frame: view.frame, willDisappear: { date in
-    //                if date != nil {
-    //                    print("select date \(date)")
-    //                }
-    //            })
-    //        }
-    //
-    //        datePicker.picker.date = NSDate()
-    //        datePicker?.present(self)
-    //    }
+//    let datePicker: UDatePicker?
+//
+//    // ...
+//    
+//    func showDatePicker() {
+//        if datePicker == nil {
+//            datePicker = datePicker(frame: view.frame, willDisappear: { date in
+//                if date != nil {
+//                    print("select date \(date)")
+//                }
+//            })
+//        }
+//        
+//        datePicker.picker.date = NSDate()
+//        datePicker?.present(self)
+//    }
+
     
     
     @IBOutlet weak var datePickerView: UIDatePicker!
@@ -37,11 +38,12 @@ class CreateTripViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePickerView.date = selectDate
+        //datePickerView.date = selectDate
         
         //        API.createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation, completion: @escaping (Trip) -> Void)
     }
     
+//        
     @IBAction func onDatePickerButton(_ sender: Any) {
         let secondsSinceOriginDate = Date().timeIntervalSince(datePickerView.minimumDate!)
         let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1

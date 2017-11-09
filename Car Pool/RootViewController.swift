@@ -15,6 +15,9 @@ class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
     
+    @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
+         
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +37,13 @@ class RootViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let tripDetailVC = segue.destination as? TripDetailViewController
+        if let tripDetailVC = segue.destination as? TripDetailViewController{
         let indexPath = tableView.indexPathForSelectedRow
         let trip = trips[(indexPath?.row)!]
-        tripDetailVC?.trip = trip
-        
+            tripDetailVC.trip = trip
+        }
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trips.count

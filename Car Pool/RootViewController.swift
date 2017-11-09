@@ -61,6 +61,11 @@ class RootViewController: UITableViewController {
 //            cell.backgroundColor = .red
 //        }
         return cell
+}
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        
     }
 
     

@@ -107,6 +107,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
+                                <rect key="frame" x="165" y="484" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Accept"/>
+                                <connections>
+                                    <action selector="acceptButtonTapped:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="AkU-b2-Xgw"/>
+                                    <action selector="onClaimButtonPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="d91-nT-ghj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -116,10 +125,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="eventInfo1Label" destination="bbe-EV-QpY" id="Lah-SY-swV"/>
-                        <outlet property="eventInfo2Label" destination="yj0-6z-CLL" id="ekH-K7-hYR"/>
-                        <outlet property="eventInfo3Label" destination="SaS-Af-IB1" id="d60-eI-kM4"/>
-                        <outlet property="eventInfo4Label" destination="cfy-Qg-yjG" id="wSz-5r-XAp"/>
                         <outlet property="eventInfoLabel" destination="U3O-LW-Rlv" id="9aR-uD-I1n"/>
                     </connections>
                 </viewController>

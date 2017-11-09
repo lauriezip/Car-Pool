@@ -11,7 +11,6 @@ import CarpoolKit
 import FirebaseCommunity
 
 class TripDetailViewController: UIViewController {
-    var trip: Trip!
     var labelText: String?
     var firstVCtext = ""
     
@@ -22,8 +21,6 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var eventInfo1Label: UILabel!
     
     @IBOutlet weak var eventInfo2Label: UILabel!
-    
-    @IBOutlet weak var eventInfo3Label: UILabel!
     
     @IBOutlet weak var eventInfo4Label: UILabel!
     
@@ -51,5 +48,47 @@ class TripDetailViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-   
+    
+        
+
+
 }
+    
+    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+         let alert = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .Alert)
+        let claimAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(claimAction)
+        self.presentViewController(myAlert, animated: true, completion: nil);
+    }
+    
+
+//}
+
+///// if there is no error, completes with nil
+//public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+//    claim("pickUp", trip: trip, completion: completion)
+//}
+//
+///// if there is no error, completes with nil
+//public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+//    claim("dropOff", trip: trip, completion: completion)
+//}
+//
+//static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+//    firstly {
+//        auth()
+//        }.then { _ -> Promise<User> in
+//            guard let uid = Auth.auth().currentUser?.uid else {
+//                throw Error.notAuthorized
+//            }
+//            return API.fetchUser(id: uid)
+//        }.then { user -> Void in
+//            Database.database().reference().child("trips").child(trip.key).updateChildValues([
+//                key: [user.key: user.name ?? "Anonymous Parent"]
+//                ])
+//            completion(nil)
+//        }.catch {
+//            completion($0)
+//    }
+//}
+

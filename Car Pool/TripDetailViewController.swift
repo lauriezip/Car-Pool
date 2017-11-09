@@ -33,7 +33,7 @@ class TripDetailViewController: UIViewController {
     func showTripDetails() {
         let userId = Auth.auth().currentUser?.uid
         let eventRef = Database.database().reference().child("events").childByAutoId()
-        eventRef.observe(of: .value, with: { (snapshot) in
+//        eventRef.observe(of: .value, with: { (snapshot) in
 //        let event = snapshot.value as? [String: Any] else { return }
 //            eventInfoLabel.description
         
@@ -52,4 +52,6 @@ class TripDetailViewController: UIViewController {
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
     }
     
-}
+
+//}
+

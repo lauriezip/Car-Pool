@@ -13,7 +13,6 @@
 		497C4B5E1FB0E77E0074B6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */; };
 		497C4B601FB0E77E0074B6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */; };
 		497C4B631FB0E77E0074B6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B611FB0E77E0074B6C2 /* LaunchScreen.storyboard */; };
-		91466F691FB3C8AF00601B28 /* Savannah (1).gpx in Resources */ = {isa = PBXBuildFile; fileRef = 91466F681FB3C8AF00601B28 /* Savannah (1).gpx */; };
 		9187CE951FB1007200354FE5 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187CE941FB1007200354FE5 /* CreateTripViewController.swift */; };
 		9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */; };
 		91BB1F4D1FB3662100AB6A98 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */; };
@@ -31,7 +30,6 @@
 		497C4B621FB0E77E0074B6C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497C4B641FB0E77E0074B6C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8940F49EFA6045E41400D1C9 /* Pods_Car_Pool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Pool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		91466F681FB3C8AF00601B28 /* Savannah (1).gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Savannah (1).gpx"; path = "../../Savannah (1).gpx"; sourceTree = "<group>"; };
 		9187CE941FB1007200354FE5 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 				497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */,
 				497C4B611FB0E77E0074B6C2 /* LaunchScreen.storyboard */,
 				497C4B641FB0E77E0074B6C2 /* Info.plist */,
-				91466F681FB3C8AF00601B28 /* Savannah (1).gpx */,
 				9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */,
 			);
 			path = "Car Pool";
@@ -168,7 +165,6 @@
 				497C4B631FB0E77E0074B6C2 /* LaunchScreen.storyboard in Resources */,
 				9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */,
 				497C4B601FB0E77E0074B6C2 /* Assets.xcassets in Resources */,
-				91466F691FB3C8AF00601B28 /* Savannah (1).gpx in Resources */,
 				497C4B5E1FB0E77E0074B6C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

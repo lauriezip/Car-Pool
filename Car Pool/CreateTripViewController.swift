@@ -10,28 +10,9 @@ import UIKit
 import CarpoolKit
 import FirebaseCommunity
 import PromiseKit
+import CoreLocation
 
-
-
-class CreateTripViewController: UIViewController{
-    
-//    let datePicker: UDatePicker?
-//
-//    // ...
-//    
-//    func showDatePicker() {
-//        if datePicker == nil {
-//            datePicker = datePicker(frame: view.frame, willDisappear: { date in
-//                if date != nil {
-//                    print("select date \(date)")
-//                }
-//            })
-//        }
-//        
-//        datePicker.picker.date = NSDate()
-//        datePicker?.present(self)
-//    }
-
+class CreateTripViewController: UIViewController {
     
     
     @IBOutlet weak var datePickerView: UIDatePicker!
@@ -42,10 +23,8 @@ class CreateTripViewController: UIViewController{
         super.viewDidLoad()
         //datePickerView.date = selectDate
         
-        //        API.createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation, completion: @escaping (Trip) -> Void)
     }
     
-//        
     @IBAction func onDatePickerButton(_ sender: Any) {
         let secondsSinceOriginDate = Date().timeIntervalSince(datePickerView.minimumDate!)
         let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1
@@ -58,23 +37,12 @@ class CreateTripViewController: UIViewController{
         
     }
     
-    func createTrip (eventDescription: String, eventTime: Date, eventLocation: CLLocation, completion: @escaping (Trip) -> Void) {
+    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {
         
-        let event = Event(id: UUID().uuidString, description: eventDescription, time: eventTime, location: eventLocation)
-        let leg1 = Leg(id: UUID().uuidString, driver: User.current)
-        let leg2 = Leg(id: UUID().uuidString, driver: nil)
-        let trip = Trip(id: UUID().uuidString, event: event, pickUp: leg1, dropOff: leg2)
-        fakeTrips.insert(trip, at: 0)
         
-        guard let uid = Auth.auth().currentUser?.uid else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                completion(trip)
-            }
-            
-        }
+    
     }
     
-    
-}
+        }
 
 

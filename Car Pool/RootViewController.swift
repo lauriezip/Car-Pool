@@ -9,8 +9,6 @@
 import UIKit
 import CarpoolKit
 
-
-
 class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
@@ -39,8 +37,8 @@ class RootViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController{
         let indexPath = tableView.indexPathForSelectedRow
-        let trip = trips[(indexPath?.row)!]
-            tripDetailVC.trip = trip
+            tripDetailVC.trip = trips[(indexPath?.row)!]
+          
         }
     }
     
@@ -54,12 +52,6 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         let trip = trips[indexPath.row]
-//        let isClaimed = (trip.dropOff?.isClaimed ?? false) && (trip.pickUp?.isClaimed ?? false)
-//        if isClaimed {
-//            cell.backgroundColor = .clear
-//        } else {
-//            //cell.backgroundColor = .red
-//        }
         return cell
 }
     

@@ -14,7 +14,9 @@ import PromiseKit
 class TripDetailViewController: UIViewController {
     var labelText: String?
     var firstVCtext = ""
-    
+    var event: Event?
+    var eventDict: [String: Any] = [:]
+    var trip: Trip!
     
     
     @IBOutlet weak var eventInfoLabel: UILabel!
@@ -29,63 +31,36 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         self.eventInfoLabel.text = labelText
         
-        
     }
- 
+    
+    
     func showTripDetails() {
         let userId = Auth.auth().currentUser?.uid
         let eventRef = Database.database().reference().child("events").childByAutoId()
-//        eventRef.observe(of: .value, with: { (snapshot) in
-//        let event = snapshot.value as? [String: Any] else { return }
-//            eventInfoLabel.description
-        
-       
-//        refHandle = eventRef.observe(DataEventType.value, with: { (snapshot) in
-//            let event = snapshot.value as? [String : AnyObject] ?? [:]
-        
-         //let event = Event(key: eventRef.key, description: desc, owner: user, time: time, geohash: geohash)
+        eventRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let rawEvent = snapshot.value as? [String: Any] else { return }
+            self.eventInfoLabel.text = self.labelText
+            
+        })
     }
     
-        
-
-
-}
+    
+    
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
-         let alert = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .Alert)
-        let claimAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        myAlert.addAction(claimAction)
-        self.presentViewController(myAlert, animated: true, completion: nil);
+        claimAlertAction()
     }
     
-
-//}
-
-///// if there is no error, completes with nil
-//public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    claim("pickUp", trip: trip, completion: completion)
-//}
-//
-///// if there is no error, completes with nil
-//public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    claim("dropOff", trip: trip, completion: completion)
-//}
-//
-//static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-//    firstly {
-//        auth()
-//        }.then { _ -> Promise<User> in
-//            guard let uid = Auth.auth().currentUser?.uid else {
-//                throw Error.notAuthorized
-//            }
-//            return API.fetchUser(id: uid)
-//        }.then { user -> Void in
-//            Database.database().reference().child("trips").child(trip.key).updateChildValues([
-//                key: [user.key: user.name ?? "Anonymous Parent"]
-//                ])
-//            completion(nil)
-//        }.catch {
-//            completion($0)
-//    }
-//}
-
+    
+    func claimAlertAction() {
+        
+        let claimAlertAction = UIAlertController(title: "Claim Trip", message: "Would you like to claim this trip ?", preferredStyle: .alert)
+        claimAlertAction.addAction (UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        claimAlertAction.addAction (UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {
+            (UIAlertController) -> Void in
+            print ("handle Claim action...")
+            self.present(claimAlertAction, animated: true, completion: nil);
+        })
+        )
+    }
+}

@@ -19,6 +19,7 @@ protocol DatePickerViewDelegate {
 class CreateTripViewController: UIViewController, UITextFieldDelegate {
     var selectDate = Date()
     var delegate: DatePickerViewDelegate?
+    var fields: [String] = []
     
     @IBAction func destinationTextTriggered(_ sender: Any) {
         print("return text field entered")
@@ -32,6 +33,11 @@ class CreateTripViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var date: String?
+    
+    
+    @IBAction func onDestinationTextField(_ sender: UITextField) {
+        }
+    
     
     
     @IBAction func cancelPressed(sender: AnyObject) {
@@ -54,10 +60,15 @@ class CreateTripViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         datePicker.date = selectDate
             
-        
-        
-       
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapVC = segue.destination as? MapViewController, let mapView = sender as? UITextField {
+            mapVC.textfield = mapView
+        }
     }
+    
+    
 }
 
 

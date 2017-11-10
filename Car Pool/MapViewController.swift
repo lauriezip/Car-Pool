@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, UITextFieldDelegate {
+    var textfield = UITextField()
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,7 +22,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        mapView.delegate = self
+        //mapView.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -50,12 +51,18 @@ class MapViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    func formatAddressFromPlacemark(placemark: CLPlacemark) -> String {
+        return (placemark.addressDictionary!["FormattedAddressLines"] as!
+            [String]).joined(separator: ", ")
+    }
 }
 
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        
         
         
         search(for: "pizza")
@@ -71,6 +78,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+        
     }
 }
 extension MKMapItem: MKAnnotation {

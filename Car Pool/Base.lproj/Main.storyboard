@@ -23,9 +23,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEf-s7-fb8">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEf-s7-fb8">
                                     <rect key="frame" x="139" y="6" width="76" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Create Trip"/>
                                     <connections>
                                         <segue destination="OXH-QN-OZD" kind="show" identifier="CreateTripSegue" id="rJb-MA-RDL"/>
@@ -33,6 +32,12 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="MEf-s7-fb8" firstAttribute="top" secondItem="DZ5-A2-BnH" secondAttribute="top" constant="6" id="LAf-ju-b7F"/>
+                                <constraint firstItem="MEf-s7-fb8" firstAttribute="leading" secondItem="DZ5-A2-BnH" secondAttribute="leading" constant="139" id="dWZ-xU-XAj"/>
+                                <constraint firstAttribute="bottom" secondItem="MEf-s7-fb8" secondAttribute="bottom" constant="8" id="oxY-1S-EaI"/>
+                                <constraint firstAttribute="trailing" secondItem="MEf-s7-fb8" secondAttribute="trailing" constant="160" id="zvd-d8-mPd"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" id="Hhp-q4-B33">
@@ -135,7 +140,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images-1" translatesAutoresizingMaskIntoConstraints="NO" id="lse-Fh-eKS">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carpool" translatesAutoresizingMaskIntoConstraints="NO" id="lse-Fh-eKS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99104982614517212" green="0.9963950514793396" blue="0.99171203374862671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -245,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5NY-7U-lSu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultsCell" id="5NY-7U-lSu">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5NY-7U-lSu" id="Gfm-wP-AxT">
@@ -272,17 +277,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb6-3z-fbs">
-                                <rect key="frame" x="287" y="570" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show Map"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb6-3z-fbs">
+                                <rect key="frame" x="277" y="570" width="92" height="30"/>
+                                <state key="normal" title="Show Results"/>
                                 <connections>
-                                    <segue destination="18t-ig-cr1" kind="show" id="CCu-aX-TKv"/>
+                                    <segue destination="BOY-vH-Zw9" kind="show" id="kVo-hJ-ptv"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-T5-kQN">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-T5-kQN">
                                 <rect key="frame" x="16" y="81" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Pickup"/>
                                     <segment title="Dropoff"/>
@@ -295,16 +298,14 @@
                                     <!--2017-11-07 18:31:08 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="keq-Va-mHE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="keq-Va-mHE">
                                 <rect key="frame" x="16" y="125" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZZ-JO-O5R">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZZ-JO-O5R">
                                 <rect key="frame" x="16" y="163" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -330,13 +331,27 @@
                                     <action selector="donePressedWithSender:" destination="OXH-QN-OZD" eventType="touchUpInside" id="9Ng-TR-aSS"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-gx-HeQ">
+                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-gx-HeQ">
                                 <rect key="frame" x="0.0" y="499" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XQL-T5-kQN" firstAttribute="top" secondItem="bgZ-lx-ZTP" secondAttribute="top" constant="17" id="156-DI-b4p"/>
+                            <constraint firstItem="bgZ-lx-ZTP" firstAttribute="trailing" secondItem="0ZZ-JO-O5R" secondAttribute="trailing" constant="16" id="4KA-eo-p7u"/>
+                            <constraint firstItem="bgZ-lx-ZTP" firstAttribute="bottom" secondItem="pb6-3z-fbs" secondAttribute="bottom" constant="18" id="AlA-oQ-r99"/>
+                            <constraint firstItem="0ZZ-JO-O5R" firstAttribute="top" secondItem="keq-Va-mHE" secondAttribute="bottom" constant="8" id="Ces-Nx-9mP"/>
+                            <constraint firstItem="pb6-3z-fbs" firstAttribute="leading" secondItem="bgZ-lx-ZTP" secondAttribute="leading" constant="277" id="FqG-hd-gZj"/>
+                            <constraint firstItem="XQL-T5-kQN" firstAttribute="leading" secondItem="bgZ-lx-ZTP" secondAttribute="leading" constant="16" id="J6e-AE-my7"/>
+                            <constraint firstItem="0ZZ-JO-O5R" firstAttribute="leading" secondItem="bgZ-lx-ZTP" secondAttribute="leading" constant="16" id="MZs-wv-GwY"/>
+                            <constraint firstItem="bgZ-lx-ZTP" firstAttribute="trailing" secondItem="keq-Va-mHE" secondAttribute="trailing" constant="16" id="PcB-QS-ECW"/>
+                            <constraint firstItem="pb6-3z-fbs" firstAttribute="top" secondItem="uUD-gx-HeQ" secondAttribute="bottom" constant="15" id="ReH-l3-gXD"/>
+                            <constraint firstItem="keq-Va-mHE" firstAttribute="top" secondItem="XQL-T5-kQN" secondAttribute="bottom" constant="16" id="Rqq-lX-JuM"/>
+                            <constraint firstItem="bgZ-lx-ZTP" firstAttribute="trailing" secondItem="pb6-3z-fbs" secondAttribute="trailing" constant="6" id="Wbe-Pf-BQp"/>
+                            <constraint firstItem="bgZ-lx-ZTP" firstAttribute="trailing" secondItem="XQL-T5-kQN" secondAttribute="trailing" constant="16" id="c3M-ZY-jGu"/>
+                            <constraint firstItem="keq-Va-mHE" firstAttribute="leading" secondItem="bgZ-lx-ZTP" secondAttribute="leading" constant="16" id="eDk-uo-vgW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bgZ-lx-ZTP"/>
                     </view>
                     <connections>
@@ -414,9 +429,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="images-1" width="170" height="140"/>
+        <image name="carpool" width="548" height="363"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="CCu-aX-TKv"/>
-    </inferredMetricsTieBreakers>
 </document>

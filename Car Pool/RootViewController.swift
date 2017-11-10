@@ -16,6 +16,7 @@ class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
     
+    
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
         
     }
@@ -55,12 +56,7 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         let trip = trips[indexPath.row]
-        //        let isClaimed = (trip.dropOff?.claimPickUp ?? false) && (trip.pickUp?.isClaimed ?? false)
-        //        if isClaimed {
-        //            cell.backgroundColor = .clear
-        //        } else {
-        //            cell.backgroundColor = .red
-        //        }
+    
         return cell
     }
     

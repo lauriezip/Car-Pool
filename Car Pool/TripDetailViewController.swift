@@ -29,7 +29,7 @@ class TripDetailViewController: UIViewController {
         eventInfoLabel.text = trip.event.description
         eventInfo1Label.text = trip.dropOff?.driver.name
         eventInfo2Label.text = trip.pickUp?.driver.name
-        eventInfoLabel.text = trip.event.key
+        eventInfo4Label.text = trip.event.key
     }
     
     override func viewDidAppear(_ animated: Bool) {

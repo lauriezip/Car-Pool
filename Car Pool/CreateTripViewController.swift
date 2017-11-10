@@ -22,7 +22,7 @@ class CreateTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //datePickerView.date = selectDate
-        
+      
     }
     
     @IBAction func onDatePickerButton(_ sender: Any) {
@@ -38,11 +38,8 @@ class CreateTripViewController: UIViewController {
     }
     
 //    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {
-//        let newTrip = Trip(from: )
-//        newTrip.// code trip details here
-//        
-//    }
-//    
+   
         }
+
 
 

@@ -30,6 +30,9 @@ class TripDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+          showTripDetails()
+        
+        
         eventInfoLabel.text = trip.event.description
         eventInfo1Label.text = trip.dropOff?.driver.name
         eventInfo2Label.text = trip.pickUp?.driver.name
@@ -37,14 +40,16 @@ class TripDetailViewController: UIViewController {
         
     }
     
-    //set identifier in storyboard on rootVC to pass here?
-//    func showTripDetails() {
-//        let myVC = storyboard?.instantiateViewControllerWithIdentifier("") as! SecondVC
-//        myVC.stringPassed = myLabel.text!
-//        navigationController?.pushViewController(myVC, animated: true)
-//    }
+   
+    func showTripDetails() {
+        if let trip = trip {
+            eventInfoLabel.text = trip.event.description
+            eventInfo1Label.text = trip.dropOff?.driver.name
+            eventInfo2Label.text = trip.pickUp?.driver.name
+            eventInfo4Label.text = trip.event.key
+        }
     
-    
+    }
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
         claimAlertAction()

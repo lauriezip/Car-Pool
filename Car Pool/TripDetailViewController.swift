@@ -29,21 +29,20 @@ class TripDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.eventInfoLabel.text = labelText
+        
+        eventInfoLabel.text = trip.event.description
+        eventInfo1Label.text = trip.dropOff?.driver.name
+        eventInfo2Label.text = trip.pickUp?.driver.name
+        eventInfo4Label.text = trip.event.key
         
     }
     
-    
-    func showTripDetails() {
-        let userId = Auth.auth().currentUser?.uid
-        let eventRef = Database.database().reference().child("events").childByAutoId()
-        eventRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let rawEvent = snapshot.value as? [String: Any] else { return }
-            self.eventInfoLabel.text = self.labelText
-            
-        })
-    }
-    
+    //set identifier in storyboard on rootVC to pass here?
+//    func showTripDetails() {
+//        let myVC = storyboard?.instantiateViewControllerWithIdentifier("") as! SecondVC
+//        myVC.stringPassed = myLabel.text!
+//        navigationController?.pushViewController(myVC, animated: true)
+//    }
     
     
     

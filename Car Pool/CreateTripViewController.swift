@@ -37,12 +37,12 @@ class CreateTripViewController: UIViewController {
         
     }
     
-    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {
-        
-        
-    
-    }
-    
+//    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {
+//        let newTrip = Trip(from: )
+//        newTrip.// code trip details here
+//        
+//    }
+//    
         }
 
 

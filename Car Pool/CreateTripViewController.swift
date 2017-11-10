@@ -16,11 +16,20 @@ protocol DatePickerViewDelegate {
     func donePressed()
 }
 
-class CreateTripViewController: UIViewController{
-    
+class CreateTripViewController: UIViewController, UITextFieldDelegate {
+    var selectDate = Date()
     var delegate: DatePickerViewDelegate?
     
+    @IBAction func destinationTextTriggered(_ sender: Any) {
+        print("return text field entered")
+    }
+    @IBOutlet weak var childNameTextField: UITextField!
+    @IBOutlet weak var destinationTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var pickupDropoffSegmentedView: UISegmentedControl!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var date: String?
     
@@ -38,21 +47,16 @@ class CreateTripViewController: UIViewController{
         let strDate = dateFormatter.string(from: self.datePicker.date)
         date = strDate
         delegate?.donePressed()
+        datePicker.date = selectDate
         
     }
-    
-    
-    @IBOutlet weak var datePickerView: UIDatePicker!
-    var selectDate = Date()
-    
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.date = selectDate
+            
         
         
-        //        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>, completion: <#T##(Result<Trip>) -> Void#>)
-        //    }
-        //
+       
     }
 }
 

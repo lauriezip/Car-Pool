@@ -10,16 +10,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    
     
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        locationManager.delegate = self  
+        locationManager.delegate = self
+        mapView.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

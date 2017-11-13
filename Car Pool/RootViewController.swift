@@ -12,41 +12,61 @@ import CarpoolKit
 
 class RootViewController: UITableViewController {
     
-   
-    var trips: [Trip] = []
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-        
-    }
+     @IBOutlet weak var eventSegmentedControl: UISegmentedControl!
+    
+    var trips: [Trip] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        API.fetchCurrentUser() { (result) in
+        API.observeTrips(sender: self) { (result) in
             switch result {
             case .success(let trips):
-        
+                self.trips = trips
                 self.tableView.reloadData()
             case .failure(let error):
-                print (error)
+                print(error)
             }
-            
         }
-        
+    }
+    
+    @IBAction func eventSegmentedControlPressed(_ sender: UISegmentedControl) {
+        switch eventSegmentedControl.selectedSegmentIndex {
+        case 0:
+            API.observeTrips(sender: self) { (result) in
+                switch result {
+                case .success(let trips):
+                    self.trips = trips
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case 1:
+            API.observeMyTrips(sender: self, observer: { (result) in
+                switch result {
+                case .success(let trips):
+                    self.trips = trips
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            })
+        default:
+            break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if let tripDetailVC = segue.destination as? TripDetailViewController{
+        if let tripDetailVC = segue.destination as? TripDetailViewController {
             let indexPath = tableView.indexPathForSelectedRow
             tripDetailVC.trip = trips[(indexPath?.row)!]
-            
         }
     }
     
-   
-    
-    //TODO FUNC FOR DOWNLOADED TRIPS DATA??
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trips.count
@@ -54,19 +74,32 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let trips = self.trips
-        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath) //as! A
-        cell.textLabel?.text = trips[indexPath.row].event.description
+        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        if eventSegmentedControl.selectedSegmentIndex == 0 {
+            if trips[indexPath.row].event.description == "" {
+                cell.textLabel?.text = "* no event description available *"
+            } else {
+                cell.textLabel?.text = trips[indexPath.row].event.description
+            }
+        } else if eventSegmentedControl.selectedSegmentIndex == 1 {
+            if trips[indexPath.row].event.description == "" {
+                cell.textLabel?.text = "* no event description available *"
+            } else {
+                cell.textLabel?.text = trips[indexPath.row].event.description
+            }
+        }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        
+    @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
     }
-    
-    
 }
 
-
+extension RootViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        API.search(forUsersWithName: searchBar.text!) { (result) in
+            print(result)
+        }
+    }
+}
 

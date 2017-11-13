@@ -34,7 +34,6 @@ class CreateTripViewController: UIViewController {
         offsetComponents.day = -Int(day - 1)
         let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
         datePicker.date = randomDate!
-        
     }
     
 //    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {

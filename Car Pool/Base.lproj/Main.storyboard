@@ -23,14 +23,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEf-s7-fb8">
-                                    <rect key="frame" x="139" y="6" width="76" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Create Trip"/>
-                                    <connections>
-                                        <segue destination="OXH-QN-OZD" kind="show" identifier="CreateTripSegue" id="rJb-MA-RDL"/>
-                                    </connections>
-                                </button>
+                                <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="aYs-8d-Haj">
+                                    <rect key="frame" x="0.0" y="-6" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
@@ -55,6 +52,9 @@
                     <navigationItem key="navigationItem" id="53J-Tg-Pgw">
                         <nil key="title"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="aYs-8d-Haj" id="ljX-Ex-XP9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZN-UQ-qu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,13 +98,29 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
-                                <rect key="frame" x="165" y="484" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="066-AV-zV8">
+                                <rect key="frame" x="238" y="480" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accept"/>
+                                <state key="normal" title="Accept Dropoff"/>
+                                <connections>
+                                    <action selector="onClaimDropoffPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="Ttn-cl-lE3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtM-6g-n3H">
+                                <rect key="frame" x="166" y="303" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
+                                <rect key="frame" x="32" y="485" width="99" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Accept Pickup"/>
                                 <connections>
                                     <action selector="acceptButtonTapped:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="AkU-b2-Xgw"/>
                                     <action selector="onClaimButtonPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="d91-nT-ghj"/>
+                                    <action selector="onClaimPickupPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="vO5-F2-OfO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,10 +133,13 @@
                         <viewLayoutGuide key="safeArea" id="RAp-fc-1oA"/>
                     </view>
                     <connections>
-                        <outlet property="eventInfo1Label" destination="bbe-EV-QpY" id="e1g-WJ-tTR"/>
-                        <outlet property="eventInfo2Label" destination="yj0-6z-CLL" id="6fb-8C-hSD"/>
-                        <outlet property="eventInfo4Label" destination="SaS-Af-IB1" id="mY0-Nt-mcD"/>
-                        <outlet property="eventInfoLabel" destination="U3O-LW-Rlv" id="9aR-uD-I1n"/>
+                        <outlet property="claimDropoffButton" destination="066-AV-zV8" id="aP3-A3-4GH"/>
+                        <outlet property="claimPickupButton" destination="R0q-9d-4Bs" id="G7H-NJ-XuB"/>
+                        <outlet property="dateLabel" destination="yj0-6z-CLL" id="6fb-8C-hSD"/>
+                        <outlet property="dropoffDriverContact" destination="UtM-6g-n3H" id="3T3-Ex-EQ3"/>
+                        <outlet property="dropoffDriverLabel" destination="bbe-EV-QpY" id="e1g-WJ-tTR"/>
+                        <outlet property="pickupDriverContact" destination="SaS-Af-IB1" id="mY0-Nt-mcD"/>
+                        <outlet property="pickupDriverLabel" destination="U3O-LW-Rlv" id="9aR-uD-I1n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gQ-kv-1Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>

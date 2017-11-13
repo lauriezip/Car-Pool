@@ -13,6 +13,8 @@ import FirebaseCommunity
 
 class RootViewController: UITableViewController {
     
+    var trips: [Trip] = []
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     
@@ -63,6 +65,8 @@ class RootViewController: UITableViewController {
     
     //        @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
     //        }
+    
+}
     
 
 extension RootViewController: UISearchBarDelegate {

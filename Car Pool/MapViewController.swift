@@ -8,9 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, UITextFieldDelegate {
-    var textfield = UITextField()
+class MapViewController: UIViewController,UISearchControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -22,9 +22,11 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         //mapView.delegate = self
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -55,10 +57,10 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func formatAddressFromPlacemark(placemark: CLPlacemark) -> String {
-        return (placemark.addressDictionary!["FormattedAddressLines"] as!
-            [String]).joined(separator: ", ")
+    func search() {
+        self.mapView.addAnnotation((self.selectedMapItem?.placemark)!)
     }
+    
 }
 
 

@@ -10,62 +10,105 @@ import UIKit
 import CarpoolKit
 import MapKit
 
-protocol DatePickerViewDelegate {
-    func cancelPressed()
-    func donePressed()
-}
-
-class CreateTripViewController: UIViewController, UITextFieldDelegate {
-    var selectDate = Date()
-    var delegate: DatePickerViewDelegate?
-    var fields: [String] = []
+class CreateTripViewController: UIViewController {
     
-    @IBAction func destinationTextTriggered(_ sender: Any) {
-        print("return text field entered")
-    }
-    @IBOutlet weak var childNameTextField: UITextField!
-    @IBOutlet weak var destinationTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var eventTitleTextField: UITextField!
     
-    @IBOutlet weak var pickupDropoffSegmentedView: UISegmentedControl!
+    @IBOutlet weak var childrenTextField: UITextField!
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    var date: String?
+    @IBOutlet weak var locationTextField: UITextField!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBAction func onDestinationTextField(_ sender: UITextField) {
-        }
-    
-    
-    
-    @IBAction func cancelPressed(sender: AnyObject) {
-        delegate?.cancelPressed()
-    }
+    @IBOutlet weak var submitButton: UIButton!
     
     @IBOutlet weak var showMapViewButton: UIButton!
     
-    @IBAction func donePressed(sender: AnyObject) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        dateFormatter.dateFormat = "dd MMM HH:mm"
-        let strDate = dateFormatter.string(from: self.datePicker.date)
-        date = strDate
-        delegate?.donePressed()
-        datePicker.date = selectDate
-        
-    }
-        override func viewDidLoad() {
-        super.viewDidLoad()
-        datePicker.date = selectDate
-            
-        }
+    @IBOutlet weak var pickupDropoffSegmentedControll: UISegmentedControl!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapViewController, let mapView = sender as? UITextField {
-            mapVC.textfield = mapView
+//            mapVC.textfield = mapView
+        }
+    }
+    
+    var location = CLLocation()
+    let locationManager = CLLocationManager()
+    var locationSelected: [MKMapItem] = []
+    var selectedDate = Date()
+    var mapItems: [MKMapItem] = []
+    var selectedMapItem: MKMapItem?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+        datePicker.minimumDate = Date()
+        locationManager.delegate = self as? CLLocationManagerDelegate //as! CLLocationManagerDelegate
+      
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        datePicker.setDate(selectedDate, animated: true)
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    
+    @IBAction func onLocationTextFieldPressed(_ sender: UITextField) {
+        if locationTextField.text != nil {
+            search(for: locationTextField.text!)
+        }
+    }
+    
+    func search(for query: String) {
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = query
+        
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            print(response.mapItems)
+            self.mapItems = response.mapItems
+//            self.performSegue(withIdentifier: "SegueToLocationsTableVC", sender: self)
+        }
+    }
+    
+    
+    @IBAction func onDatePicked(_ sender: UIDatePicker) {
+        selectedDate = sender.date
+    }
+    
+    
+    @IBAction func onSubmitButtonPressed(_ sender: UIButton) {
+        createTrip()
+    }
+    
+    
+    @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapView") as! MapViewController
+       // mapVC.mapView = mapView
+          mapVC.accessibilityActivate()
+      //  mapVC.selectedMapItem = selectedMapItem
+    }
+    
+    
+    
+    func createTrip() {
+        if eventTitleTextField.text != nil {
+            API.addChild(name: childrenTextField.text!, completion: { (result) in
+                print(result)
+            })
+            API.createTrip(eventDescription: eventTitleTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
+                print(trip)
+                
+            }
         }
     }
     

@@ -34,10 +34,11 @@ class TripDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventInfoLabel.text = trip.event.description
-        eventInfo1Label.text = trip.dropOff?.driver.name
-        eventInfo2Label.text = trip.pickUp?.driver.name
-        eventInfo4Label.text = trip.event.key
+        
+        title = trip.event.description
+        showTripDetails()
+        
+       
     }
 
     

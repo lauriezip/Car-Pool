@@ -11,5 +11,7 @@ import CarpoolKit
 
 
 class PhotoViewController: UIViewController {
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

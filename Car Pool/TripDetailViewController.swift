@@ -47,8 +47,8 @@ class TripDetailViewController: UIViewController {
         formatter.dateFormat = "MMM d, YYYY h:mm a"
         pickupDriverLabel.text = "Pick up driver: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         dropoffDriverLabel.text = "Drop off driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
-        //        dropOffDriverContactLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
-        //        pickUpDriverContactLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+        //dropoffDriverContact.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver.phone)"
+        //pickupDriverContact.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver.phone)"
         dateLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
         
         if pickupDriverLabel.text == "Pick up driver: Unclaimed" {
@@ -70,13 +70,13 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             API.claimPickUp(trip: self.trip) { (error) in
-                print(error!)
+                print(error)
             }
         }))
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             API.unclaimPickUp(trip: self.trip, completion: { (error) in
-                print(error!)
+                print("error")
             })
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -90,7 +90,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimDropoffButton.backgroundColor = UIColor.white
             API.claimDropOff(trip: self.trip) { (error) in
-                print(error!)
+                print("error")
             }
         }))
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in

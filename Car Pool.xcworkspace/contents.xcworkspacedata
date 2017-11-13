@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/lauriezipperer/Desktop/Codebase/CarPool/Car Pool/LocationViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/lauriezipperer/Desktop/Codebase/CarPool/Car Pool/SettingsViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:Car Pool.xcodeproj">
    </FileRef>
    <FileRef

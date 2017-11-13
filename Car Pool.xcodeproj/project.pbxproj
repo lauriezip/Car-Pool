@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4901A1C91FB9784A00305FE2 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901A1C81FB9784A00305FE2 /* LocationTableViewController.swift */; };
 		490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AE6631FB0EF460019021D /* TripDetailViewController.swift */; };
 		497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */; };
 		497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		1EF9BDB4E23EC6491521FA9E /* Pods-Car Pool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Pool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool.debug.xcconfig"; sourceTree = "<group>"; };
-		4901A1C81FB9784A00305FE2 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		490AE6631FB0EF460019021D /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		497C4B551FB0E77E0074B6C2 /* Car Pool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */,
 				490AE6631FB0EF460019021D /* TripDetailViewController.swift */,
 				911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */,
-				4901A1C81FB9784A00305FE2 /* LocationTableViewController.swift */,
 				9187CE941FB1007200354FE5 /* CreateTripViewController.swift */,
 				497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */,
 				911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */,
@@ -263,7 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4901A1C91FB9784A00305FE2 /* LocationTableViewController.swift in Sources */,
 				490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */,
 				497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */,
 				497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */,

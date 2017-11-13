@@ -24,18 +24,15 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.fetchTripsOnce { (result) in
+        API.observeTrips(sender: self) { (result) in
             switch result {
-                
             case .success(let trips):
                 self.trips = trips
                 self.tableView.reloadData()
             case .failure(let error):
-                print (error)
+                print(error)
             }
-            
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {

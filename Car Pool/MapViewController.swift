@@ -24,6 +24,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         locationManager.delegate = self
         //mapView.delegate = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -47,10 +48,10 @@ class MapViewController: UIViewController, UITextFieldDelegate {
                     print(mapItem.placemark.title, mapItem.placemark.subtitle)
                     self.mapView.addAnnotation(mapItem.placemark)
                 }
-                
             }
         }
     }
+    
     func formatAddressFromPlacemark(placemark: CLPlacemark) -> String {
         return (placemark.addressDictionary!["FormattedAddressLines"] as!
             [String]).joined(separator: ", ")

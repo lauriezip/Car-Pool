@@ -11,18 +11,26 @@ import CarpoolKit
 
 
 class TripDetailViewController: UIViewController {
-    var labelText: String?
-    var firstVCtext = ""
     var trip: Trip!
+   
+    
+    @IBOutlet weak var pickupDriverLabel: UILabel!
+    
+    @IBOutlet weak var pickupDriverContact: UILabel!
+    
+    @IBOutlet weak var dropoffDriverLabel: UILabel!
+    
+    @IBOutlet weak var dropoffDriverContact: UILabel!
     
     
-    @IBOutlet weak var eventInfoLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var eventInfo1Label: UILabel!
+   
+    @IBOutlet weak var claimPickupButton: UIButton!
     
-    @IBOutlet weak var eventInfo2Label: UILabel!
     
-    @IBOutlet weak var eventInfo4Label: UILabel!
+    @IBOutlet weak var claimDropoffButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,99 +39,73 @@ class TripDetailViewController: UIViewController {
         eventInfo2Label.text = trip.pickUp?.driver.name
         eventInfo4Label.text = trip.event.key
     }
+
     
-    override func viewDidAppear(_ animated: Bool) {
-        createAlert(title: "Would you like to claim this?", message: "")
+    func showTripDetails() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, YYYY h:mm a"
+        pickupDriverLabel.text = "Pick up driver: " + (trip.pickUp?.driver.name ?? "Unclaimed")
+        dropoffDriverLabel.text = "Drop off driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
+        //        dropOffDriverContactLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+        //        pickUpDriverContactLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+        dateLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        
+        if pickupDriverLabel.text == "Pick up driver: Unclaimed" {
+            claimPickupButton.backgroundColor = UIColor.red
+        } else {
+            claimPickupButton.backgroundColor = UIColor.white
+        }
+        
+        if dropoffDriverLabel.text == "Drop off driver: Unclaimed" {
+            claimDropoffButton.backgroundColor = UIColor.red
+        } else {
+            claimDropoffButton.backgroundColor = UIColor.white
+        }
     }
- 
-    func createAlert (title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-            print("YES")
+    
+    
+    @IBAction func onClaimPickupPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Would you like to pickup?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
+            API.claimPickUp(trip: self.trip) { (error) in
+                print(error!)
+            }
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-            print("NO")
+        alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
+            API.unclaimPickUp(trip: self.trip, completion: { (error) in
+                print(error!)
+            })
         }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func onClaimDropoffPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Would you like to dropoff?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimDropoffButton.backgroundColor = UIColor.white
+            API.claimDropOff(trip: self.trip) { (error) in
+                print(error!)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
+            API.unclaimDropOff(trip: self.trip, completion: { (error) in
+                print(error!)
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-        
-
-
-}
-
-class Rider{
-    
-    var firstName = ""
-    var lastName = ""
-    var phoneNumber = ""
-    var email = ""
-    var password = ""
-    var picture = ""
-    //let uid: String
-    
-    // Initialize from Firebase(test)
-//    init(authData: FAuth) {
-//        //  uid = authData.uid
-//        email = authData.providerData["email"] as! String
-//        password = authData.providerData["provider"] as! String
-//    }
-    init(uidAddress: String)
-    {
-        //self.uid = uidAddress
-    }
-    
-    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: String)//, uid: String)
-    {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.phoneNumber = phoneNumber
-        self.email = email
-        self.password = password
-        self.picture = picture
-        // self.uid = uid
-    }
-    
-}
-
-class Trips{
-    var driver:Rider?
-    var firstName = ""
-    var lastName = ""
-    var phoneNumber = ""
-    var email = ""
-    var fromStreetAddress = ""
-    var toStreetAddress = ""
-    var pickUpTime = ""
-    var notes = ""
-    var postedTime = ""
-    var capacity = ""
-    var startingCapacity = ""
-    var riders:[Rider]?
-    var postId = ""
-    
-    init(rider:Rider, fromStreetAddress:String, toStreetAddress:String, pickUpTime: String, notes:String, postedTime: String, capacity: String, startingCapacity:String, postId:String)
-    {
-        self.driver = rider
-        self.firstName = rider.firstName
-        self.lastName = rider.lastName
-        self.phoneNumber = rider.phoneNumber
-        self.email = rider.email
-        self.fromStreetAddress = fromStreetAddress
-        
-        self.toStreetAddress = toStreetAddress
-        self.postedTime = postedTime
-        self.pickUpTime = pickUpTime
-        self.capacity = capacity
-        self.startingCapacity = startingCapacity
-        self.notes = notes
-        self.postId = postId
         
     }
     
-    func addRider(rider:Rider){
-        self.riders?.append(rider)
-    }
-}
+    
+
+    
+
+

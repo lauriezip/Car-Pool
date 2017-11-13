@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 class MapViewController: UIViewController, UITextFieldDelegate {
     var textfield = UITextField()
@@ -18,6 +17,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     
     
     let locationManager = CLLocationManager()
+    var selectedMapItem: MKMapItem?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = query
@@ -45,7 +48,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
                 //                print(response.mapItems)
                 self.mapView.addAnnotations(response.mapItems)
                 for mapItem in response.mapItems{
-                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
+                    print(mapItem.placemark.title!, mapItem.placemark.subtitle) // as Any
                     self.mapView.addAnnotation(mapItem.placemark)
                 }
             }
@@ -58,10 +61,15 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+
+
+
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
+        let region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
+        mapView.setRegion(region, animated: true)
         
         
         

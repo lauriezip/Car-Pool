@@ -8,8 +8,7 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
-import PromiseKit
+import MapKit
 
 protocol DatePickerViewDelegate {
     func cancelPressed()
@@ -34,6 +33,7 @@ class CreateTripViewController: UIViewController, UITextFieldDelegate {
     
     var date: String?
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func onDestinationTextField(_ sender: UITextField) {
         }
@@ -44,6 +44,7 @@ class CreateTripViewController: UIViewController, UITextFieldDelegate {
         delegate?.cancelPressed()
     }
     
+    @IBOutlet weak var showMapViewButton: UIButton!
     
     @IBAction func donePressed(sender: AnyObject) {
         let dateFormatter = DateFormatter()
@@ -70,5 +71,28 @@ class CreateTripViewController: UIViewController, UITextFieldDelegate {
     
     
 }
+
+
+
+    
+extension CreateTripViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+}
+
+extension CreateTripViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
+        //mapView.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+
+
 
 

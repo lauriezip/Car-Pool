@@ -11,10 +11,9 @@ import CarpoolKit
 import FirebaseCommunity
 
 
-
 class RootViewController: UITableViewController {
     
-    var trips: [Trip] = []
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
@@ -36,10 +35,9 @@ class RootViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if let tripDetailVC = segue.destination as? TripDetailViewController{
+        if let tripDetailVC = segue.destination as? TripDetailViewController {
             let indexPath = tableView.indexPathForSelectedRow
             tripDetailVC.trip = trips[(indexPath?.row)!]
-            
         }
     }
     
@@ -61,7 +59,18 @@ class RootViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)!
         
     }
+
     
+    //        @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+    //        }
     
+
+extension RootViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        API.search(forUsersWithName: searchBar.text!) { (result) in
+            print(result)
+        }
+    }
 }
+
 

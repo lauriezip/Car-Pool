@@ -14,51 +14,23 @@ class RootViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-     @IBOutlet weak var eventSegmentedControl: UISegmentedControl!
-    
     var trips: [Trip] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        API.observeTrips(sender: self) { (result) in
-            switch result {
-            case .success(let trips):
-                self.trips = trips
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
+                API.observeTrips(sender: self) { (result) in
+                    switch result {
+                    case .success(let trips):
+                        self.trips = trips
+                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
-        }
-    }
     
-    @IBAction func eventSegmentedControlPressed(_ sender: UISegmentedControl) {
-        switch eventSegmentedControl.selectedSegmentIndex {
-        case 0:
-            API.observeTrips(sender: self) { (result) in
-                switch result {
-                case .success(let trips):
-                    self.trips = trips
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        case 1:
-            API.observeMyTrips(sender: self, observer: { (result) in
-                switch result {
-                case .success(let trips):
-                    self.trips = trips
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-            })
-        default:
-            break
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController {
@@ -75,25 +47,17 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        if eventSegmentedControl.selectedSegmentIndex == 0 {
             if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description available *"
-            } else {
                 cell.textLabel?.text = trips[indexPath.row].event.description
             }
-        } else if eventSegmentedControl.selectedSegmentIndex == 1 {
-            if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description available *"
-            } else {
-                cell.textLabel?.text = trips[indexPath.row].event.description
-            }
+         return cell //[indexPath.row].event.description
         }
-        return cell
     }
+
     
-    @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
-    }
-}
+    //        @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+    //        }
+    
 
 extension RootViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
@@ -102,4 +66,5 @@ extension RootViewController: UISearchBarDelegate {
         }
     }
 }
+
 

@@ -8,37 +8,129 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
-import PromiseKit
-import CoreLocation
+import MapKit
 
 class CreateTripViewController: UIViewController {
     
+    @IBOutlet weak var eventTitleTextField: UITextField!
+    
+    @IBOutlet weak var childrenTextField: UITextField!
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var date: String?
+    @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var showMapViewButton: UIButton!
+    
+    @IBOutlet weak var pickupDropoffSegmentedControll: UISegmentedControl!
+    
+    
+    var location = CLLocation()
+    let locationManager = CLLocationManager()
+    var locationSelected: [MKMapItem] = []
+    var selectedDate = Date()
+    var mapItems: [MKMapItem] = []
+    var selectedMapItem: MKMapItem?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //datePickerView.date = selectDate
+       
+        datePicker.minimumDate = Date()
+        locationManager.delegate = self as? CLLocationManagerDelegate //as! CLLocationManagerDelegate
       
     }
     
-    @IBAction func onDatePickerButton(_ sender: Any) {
-        let secondsSinceOriginDate = Date().timeIntervalSince(datePicker.minimumDate!)
-        let day = arc4random_uniform(UInt32(secondsSinceOriginDate / 60 / 60 / 24))+1
-        let today = Date(timeIntervalSinceNow: 0)
-        let gregorian  = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        var offsetComponents = DateComponents()
-        offsetComponents.day = -Int(day - 1)
-        let randomDate = gregorian?.date(byAdding: offsetComponents, to: today, options: .init(rawValue: 0) )
-        datePicker.date = randomDate!
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        datePicker.setDate(selectedDate, animated: true)
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
-//    func createTrip(eventDescription: String, eventTime: Date, eventLocation: CLLocation?, completion: @escaping (Trip) -> Void) {
-   
+    
+    @IBAction func onLocationTextFieldPressed(_ sender: UITextField) {
+        if locationTextField.text != nil {
+            search(for: locationTextField.text!)
         }
+    }
+    
+    func search(for query: String) {
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = query
+        
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            print(response.mapItems)
+            self.mapItems = response.mapItems
+//            self.performSegue(withIdentifier: "SegueToLocationsTableVC", sender: self)
+        }
+    }
+    
+    
+    @IBAction func onDatePicked(_ sender: UIDatePicker) {
+        selectedDate = sender.date
+    }
+    
+    
+    @IBAction func onSubmitButtonPressed(_ sender: UIButton) {
+        createTrip()
+    }
+    
+    
+    @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapView") as! MapViewController
+       // mapVC.mapView = mapView
+          mapVC.accessibilityActivate()
+      //  mapVC.selectedMapItem = selectedMapItem
+    }
+    
+    
+    
+    func createTrip() {
+        if eventTitleTextField.text != nil {
+            API.addChild(name: childrenTextField.text!, completion: { (result) in
+                print(result)
+            })
+            API.createTrip(eventDescription: eventTitleTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
+                print(trip)
+                
+            }
+        }
+    }
+    
+    
+}
+
+
+
+    
+extension CreateTripViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+}
+
+extension CreateTripViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
+        //mapView.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+
 
 
 

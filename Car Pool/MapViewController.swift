@@ -8,19 +8,22 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController,UISearchControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var selectedMapItem: MKMapItem?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        locationManager.delegate = self  
+        
+        locationManager.delegate = self
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -30,6 +33,8 @@ class MapViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
+    
+    
     
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
@@ -41,22 +46,31 @@ class MapViewController: UIViewController {
                 //                print(response.mapItems)
                 self.mapView.addAnnotations(response.mapItems)
                 for mapItem in response.mapItems{
-                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
+                    print(mapItem.placemark.title!, mapItem.placemark.subtitle) // as Any
                     self.mapView.addAnnotation(mapItem.placemark)
                 }
                 
             }
         }
     }
+    
+    func search() {
+        self.mapView.addAnnotation((self.selectedMapItem?.placemark)!)
+    }
+    
 }
+
+
+
 
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
+        let region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
+        mapView.setRegion(region, animated: true)
         
-        
-        search(for: "pizza")
+        search()
     }
 }
 

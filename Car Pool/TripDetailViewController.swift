@@ -12,7 +12,7 @@ import CarpoolKit
 
 class TripDetailViewController: UIViewController {
     var trip: Trip!
-   
+    
     
     @IBOutlet weak var pickupDriverLabel: UILabel!
     
@@ -25,7 +25,7 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-   
+    
     @IBOutlet weak var claimPickupButton: UIButton!
     
     
@@ -38,9 +38,7 @@ class TripDetailViewController: UIViewController {
         title = trip.event.description
         showTripDetails()
         
-       
     }
-
     
     func showTripDetails() {
         let formatter = DateFormatter()
@@ -102,11 +100,11 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-        
-    }
     
-    
+}
 
-    
+
+
+
 
 

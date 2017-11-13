@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import CarpoolKit
 import MapKit
+import CarpoolKit
 
 class CreateTripViewController: UIViewController {
     
@@ -44,8 +44,15 @@ class CreateTripViewController: UIViewController {
         super.viewDidLoad()
        
         datePicker.minimumDate = Date()
-        locationManager.delegate = self as? CLLocationManagerDelegate //as! CLLocationManagerDelegate
-      
+//        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
+//        if CLLocationManager.locationServicesEnabled() {
+////            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
+        
+            locationManager.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,15 +106,37 @@ class CreateTripViewController: UIViewController {
     }
     
     
-    
     func createTrip() {
-        if eventTitleTextField.text != nil {
+        let event = eventTitleTextField.text
+        if (event?.isEmpty)!  {
             API.addChild(name: childrenTextField.text!, completion: { (result) in
                 print(result)
             })
-            API.createTrip(eventDescription: eventTitleTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
-                print(trip)
+            
+            if let selectedMapItem = selectedMapItem {
                 
+                let latitude = selectedMapItem.coordinate.latitude
+                let longitude = selectedMapItem.coordinate.longitude
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                
+                API.createTrip(eventDescription: eventTitleTextField.text!, eventTime: datePicker.date, eventLocation: location) { (result) in
+                    print(result)
+                    
+                    switch result {
+                    case .success(let createTrip):
+                        if self.pickupDropoffSegmentedControll.selectedSegmentIndex == 0 {
+                            API.claimDropOff(trip: createTrip, completion: { (error) in
+                                print(error!)
+                            })
+                        } else if self.pickupDropoffSegmentedControll.selectedSegmentIndex == 1 {
+                            API.claimPickUp(trip: createTrip, completion: { (error) in
+                                print(error!)
+                            })
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
         }
     }
@@ -127,8 +156,9 @@ extension CreateTripViewController: MKMapViewDelegate {
 
 extension CreateTripViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedWhenInUse else { return }
-        //mapView.showsUserLocation = true
+        guard status == .authorizedAlways else { return }
+        locationManager.requestLocation()
+
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

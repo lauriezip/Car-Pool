@@ -83,7 +83,7 @@ class CreateTripViewController: UIViewController {
             guard let response = response else { return }
             print(response.mapItems)
             self.mapItems = response.mapItems
-//            self.performSegue(withIdentifier: "SegueToLocationsTableVC", sender: self)
+            self.performSegue(withIdentifier: "SegueToResultsTableVC", sender: self)
         }
     }
     
@@ -99,11 +99,19 @@ class CreateTripViewController: UIViewController {
     
     
     @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
-        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapView") as! MapViewController
-       // mapVC.mapView = mapView
-          mapVC.accessibilityActivate()
-      //  mapVC.selectedMapItem = selectedMapItem
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewSegue") as! MapViewController
+        mapVC.accessibilityActivate()
+        mapVC.selectedMapItem = selectedMapItem
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: (Any?) {
+//        if let locationsTableVC = segue.destination as? ResultsViewController {
+//            locationsTableVC.mapItems = mapItems
+//        }
+//        if let mapVC = segue.destination as? MapViewController {
+//            mapVC.selectedMapItem = selectedMapItem
+//        }
+//    }
     
     
     func createTrip() {
@@ -140,13 +148,8 @@ class CreateTripViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 
-
-
-    
 extension CreateTripViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)

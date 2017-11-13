@@ -17,6 +17,7 @@ class RootViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var allEventsSegmentedControl: UISegmentedControl!
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
         
@@ -43,6 +44,36 @@ class RootViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+    }
+    
+    
+    @IBAction func onEventsControlPressed(_ sender: UISegmentedControl) {
+        switch allEventsSegmentedControl.selectedSegmentIndex {
+        case 0:
+            API.observeTrips(sender: self) { (result) in
+                switch result {
+                case .success(let trips):
+                    self.trips = trips
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case 1:
+            API.observeMyTrips(sender: self, observer: { (result) in
+                switch result {
+                case .success(let trips):
+                    self.trips = trips
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            })
+        default:
+            break
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trips.count
@@ -51,9 +82,19 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        cell.textLabel?.text = trips[indexPath.row].event.description
-        let trip = trips[indexPath.row]
-    
+        if allEventsSegmentedControl.selectedSegmentIndex == 0 {
+            if trips[indexPath.row].event.description == "" {
+                cell.textLabel?.text = "* no event description *"
+            } else {
+                cell.textLabel?.text = trips[indexPath.row].event.description
+            }
+        } else if allEventsSegmentedControl.selectedSegmentIndex == 1 {
+            if trips[indexPath.row].event.description == "" {
+                cell.textLabel?.text = "* no event description *"
+            } else {
+                cell.textLabel?.text = trips[indexPath.row].event.description
+            }
+        }
         return cell
     }
     

@@ -8,8 +8,12 @@
 
 import CarpoolKit
 import UIKit
+import MapKit
 
 class ResultsViewController: UITableViewController {
+    var mapItems: [MKMapItem] = []
+    var selectedMapItem: MKMapItem?
+
     var fields: [Event] = []
     
     override func viewDidLoad() {
@@ -18,40 +22,24 @@ class ResultsViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fields.count
+        //return fields.count
+        return mapItems.count
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for: indexPath)
         cell.textLabel?.text = fields[indexPath.row].description
-        let trip = fields[indexPath.row]
+        cell.textLabel?.text = mapItems[indexPath.row].name
+        cell.detailTextLabel?.text = mapItems[indexPath.row].placemark.title
+        //let trip = fields[indexPath.row]
         return cell
     }
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let ref = Database.database().reference().child("snaps").queryOrdered(byChild: "author").queryEqual(toValue: (chap?.friends[indexPath.row])!)
-//        ref.observe(.childAdded, with: { (snapshot) in
-//            guard let value = snapshot.value as? [String: Any] else { return }
-//            if let snap = Snap(from: value) {
-//                if snap.imageUri.hasPrefix("gs://") {
-//                    
-//                    var downloadedSnaps = [Snap]()
-//                    downloadedSnaps.append(snap)
-//                    downloadedSnaps.sort(by: {$0.time.compare($1.time) == .orderedAscending})
-//                    for snap in downloadedSnaps {
-//                        let ref = Storage.storage().reference(forURL: snap.imageUri)
-//                        ref.getData(maxSize: Int64.max) { (data, error) in
-//                            if let data = data, let image = UIImage(data: data){
-//                                self.performSegue(withIdentifier: "ViewSnapSegue", sender: image)
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        })
-//    }
-//    
-    
+
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMapItem = mapItems[indexPath.row]
+        performSegue(withIdentifier: "UnwindToCreateTripVC", sender: nil)
+    }
 
     
 }

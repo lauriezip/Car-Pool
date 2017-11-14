@@ -28,7 +28,7 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapViewController, let mapView = sender as? UITextField {
-//            mapVC.textfield = mapView
+         //   mapVC.textfield = mapView
         }
     }
     
@@ -84,8 +84,9 @@ class CreateTripViewController: UIViewController {
             print(response.mapItems)
             self.mapItems = response.mapItems
             self.performSegue(withIdentifier: "SegueToResultsTableVC", sender: self)
+                
+            }
         }
-    }
     
     
     @IBAction func onDatePicked(_ sender: UIDatePicker) {
@@ -104,22 +105,31 @@ class CreateTripViewController: UIViewController {
         mapVC.selectedMapItem = selectedMapItem
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: (Any?) {
-//        if let locationsTableVC = segue.destination as? ResultsViewController {
-//            locationsTableVC.mapItems = mapItems
-//        }
-//        if let mapVC = segue.destination as? MapViewController {
-//            mapVC.selectedMapItem = selectedMapItem
-//        }
-//    }
-    
     
     func createTrip() {
         let event = eventTitleTextField.text
         if (event?.isEmpty)!  {
             API.addChild(name: childrenTextField.text!, completion: { (result) in
-                print(result)
-            })
+              print(result)
+          })
+            
+//            if desc != ""{
+//                API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { result in
+//                    switch result {
+//                    case .success(let trip):
+//                        if let child = self.child {
+//                            do {
+//                                try API.add(child: child, to: trip)
+//                                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
+//                            } catch {
+//                                //Error Handling
+//                            }
+//                        }
+//                    case .failure(_):
+//                        //Error Handling
+//                    }
+//                }
+//            }
             
             if let selectedMapItem = selectedMapItem {
                 

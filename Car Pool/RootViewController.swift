@@ -82,32 +82,24 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        if allEventsSegmentedControl.selectedSegmentIndex == 0 {
+//        if allEventsSegmentedControl.selectedSegmentIndex == 0 {
             if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description *"
+                cell.textLabel?.text = "*_ Anonymous Event _*"
             } else {
                 cell.textLabel?.text = trips[indexPath.row].event.description
             }
-        } else if allEventsSegmentedControl.selectedSegmentIndex == 1 {
-            if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description *"
-            } else {
-                cell.textLabel?.text = trips[indexPath.row].event.description
-            }
-        }
+//        } else if allEventsSegmentedControl.selectedSegmentIndex == 1 {
+//            if trips[indexPath.row].event.description == "" {
+//                cell.textLabel?.text = "* Anonymous Event *"
+//            } else {
+//                cell.textLabel?.text = trips[indexPath.row].event.description
+//            }
+//        }
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        
-    }
-
-    
-    //        @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
-    //        }
-    
+    // TODO? unwindFromCreateTripVC(segue: UIStoryboardSegue) {
 }
+
     
 
 extension RootViewController: UISearchBarDelegate {

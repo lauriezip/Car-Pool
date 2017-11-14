@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AE6631FB0EF460019021D /* TripDetailViewController.swift */; };
+		4968CB051FBB3898006CFC6C /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB041FBB3898006CFC6C /* FriendsViewController.swift */; };
+		4968CB071FBB3FBB006CFC6C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB061FBB3FBB006CFC6C /* SettingsTableViewController.swift */; };
 		497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */; };
 		497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */; };
 		497C4B5E1FB0E77E0074B6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		1EF9BDB4E23EC6491521FA9E /* Pods-Car Pool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Pool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool.debug.xcconfig"; sourceTree = "<group>"; };
 		490AE6631FB0EF460019021D /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
+		4968CB041FBB3898006CFC6C /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		4968CB061FBB3FBB006CFC6C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		497C4B551FB0E77E0074B6C2 /* Car Pool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				490AE6631FB0EF460019021D /* TripDetailViewController.swift */,
 				911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */,
 				9187CE941FB1007200354FE5 /* CreateTripViewController.swift */,
+				4968CB041FBB3898006CFC6C /* FriendsViewController.swift */,
 				497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */,
 				911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */,
 				91838D8C1FB4F59100130858 /* TabBarViewController.swift */,
@@ -264,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */,
+				4968CB051FBB3898006CFC6C /* FriendsViewController.swift in Sources */,
 				49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */,
 				497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */,
 				497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */,

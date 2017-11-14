@@ -114,8 +114,26 @@ class CreateTripViewController: UIViewController {
         let event = eventTitleTextField.text
         if (event?.isEmpty)!  {
             API.addChild(name: childrenTextField.text!, completion: { (result) in
-                print(result)
-            })
+              print(result)
+          })
+            
+//            if desc != ""{
+//                API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { result in
+//                    switch result {
+//                    case .success(let trip):
+//                        if let child = self.child {
+//                            do {
+//                                try API.add(child: child, to: trip)
+//                                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
+//                            } catch {
+//                                //Error Handling
+//                            }
+//                        }
+//                    case .failure(_):
+//                        //Error Handling
+//                    }
+//                }
+//            }
             
             if let selectedMapItem = selectedMapItem {
                 

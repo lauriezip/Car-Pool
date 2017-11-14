@@ -8,6 +8,7 @@
 
 import UIKit
 import CarpoolKit
+import FirebaseCommunity
 
 let logMeinNotification = Notification.Name("LogMeInDidCompleteNotification")
 

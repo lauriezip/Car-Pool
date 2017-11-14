@@ -22,9 +22,7 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    
     @IBOutlet weak var claimPickupButton: UIButton!
-    
     
     @IBOutlet weak var claimDropoffButton: UIButton!
     
@@ -51,7 +49,7 @@ class TripDetailViewController: UIViewController {
             claimPickupButton.backgroundColor = UIColor.white
         }
         
-        if dropoffDriverLabel.text == "Drop off driver: Unclaimed" {
+        if dropoffDriverLabel.text == "DropOff Driver: Unclaimed" {
             claimDropoffButton.backgroundColor = UIColor.red
         } else {
             claimDropoffButton.backgroundColor = UIColor.white
@@ -60,11 +58,11 @@ class TripDetailViewController: UIViewController {
     
     
     @IBAction func onClaimPickupPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Alert", message: "Would you like to pickup?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Are you claiming pickup?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             API.claimPickUp(trip: self.trip) { (error) in
-                print(error)
+                print("error")
             }
         }))
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
@@ -80,7 +78,7 @@ class TripDetailViewController: UIViewController {
     
     
     @IBAction func onClaimDropoffPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Alert", message: "Would you like to dropoff?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Are you claiming dropoff?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimDropoffButton.backgroundColor = UIColor.white
             API.claimDropOff(trip: self.trip) { (error) in

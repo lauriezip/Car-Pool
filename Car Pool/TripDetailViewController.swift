@@ -94,7 +94,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             API.unclaimDropOff(trip: self.trip, completion: { (error) in
-                print(error!)
+                //print(error!)
             })
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))

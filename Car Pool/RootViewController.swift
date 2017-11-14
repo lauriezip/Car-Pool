@@ -18,7 +18,11 @@ class RootViewController: UITableViewController {
     
     @IBOutlet weak var allEventsSegmentedControl: UISegmentedControl!
     
-    @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
+    @IBAction func onLoginPressed(_ sender: UIBarButtonItem) {
+           let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+    }
+    
+    @IBAction func onFriendsPressed(_ sender: UIBarButtonItem) {
         
     }
     
@@ -50,7 +54,7 @@ class RootViewController: UITableViewController {
     @IBAction func onEventsControlPressed(_ sender: UISegmentedControl) {
         switch allEventsSegmentedControl.selectedSegmentIndex {
         case 0:
-            API.observeTrips(sender: self) { (result) in
+            API.observeTheTripsOfMyFriends(sender: self) { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips

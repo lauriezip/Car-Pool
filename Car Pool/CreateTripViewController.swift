@@ -76,18 +76,16 @@ class CreateTripViewController: UIViewController {
     }
     
     
-    @IBAction func onSubmitButtonPressed(_ sender: UIButton) {
+    @IBAction func onConfirmedPressed(_ sender: UIButton) {
         createTrip()
     }
     
     
     @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
-        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewSegue") as! MapViewController
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
         mapVC.accessibilityActivate()
         mapVC.selectedMapItem = selectedMapItem
     }
-    
-    
     
     
     

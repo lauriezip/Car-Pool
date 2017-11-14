@@ -50,6 +50,17 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="53J-Tg-Pgw">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Friends" style="plain" id="7vs-Xe-fzE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zTu-pg-3OL">
+                                <rect key="frame" x="16" y="7" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Friends"/>
+                            </button>
+                            <connections>
+                                <action selector="onFriendsPressed:" destination="Ove-8C-ygP" id="Uj8-tD-zup"/>
+                                <segue destination="wWa-at-fEZ" kind="show" identifier="FriendViewSegue" id="UNF-pQ-aFr"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="Xp9-0Z-wgc">
                             <rect key="frame" x="101" y="7" width="173" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,6 +79,7 @@
                                 <state key="normal" title="Login"/>
                             </button>
                             <connections>
+                                <action selector="onLoginPressed:" destination="Ove-8C-ygP" id="DNP-xP-jvB"/>
                                 <segue destination="STq-TZ-gB8" kind="show" id="Ajr-Px-WOS"/>
                             </connections>
                         </barButtonItem>
@@ -194,7 +206,7 @@
         <!--Login View Controller-->
         <scene sceneID="5uK-ca-36i">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="STq-TZ-gB8" customClass="LoginViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="STq-TZ-gB8" customClass="LoginViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vo3-OK-mt6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,17 +227,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i8u-hu-hvZ">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i8u-hu-hvZ">
                                 <rect key="frame" x="16" y="201" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PjK-zF-24a">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PjK-zF-24a">
                                 <rect key="frame" x="16" y="250" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3d-rY-1ho">
                                 <rect key="frame" x="163" y="365" width="49" height="36"/>
@@ -279,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="-263" y="265"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--FriendsViewController-->
         <scene sceneID="rEz-7F-sLg">
             <objects>
-                <tableViewController id="wWa-at-fEZ" customClass="FriendsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FriendsViewController" title="FriendsViewController" id="wWa-at-fEZ" customClass="FriendsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vsh-BZ-GEY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,10 +345,10 @@
             </objects>
             <point key="canvasLocation" x="-1639" y="-405"/>
         </scene>
-        <!--Results View Controller-->
+        <!--ResultsViewController-->
         <scene sceneID="rHU-yh-Rdm">
             <objects>
-                <tableViewController id="BOY-vH-Zw9" customClass="ResultsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ResultsViewController" title="ResultsViewController" id="BOY-vH-Zw9" customClass="ResultsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BHD-ig-ulF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

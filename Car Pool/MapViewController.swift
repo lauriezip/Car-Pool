@@ -24,7 +24,6 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
         super.viewDidLoad()
         
         locationManager.delegate = self
-        //mapView.delegate = self
     }
     
     

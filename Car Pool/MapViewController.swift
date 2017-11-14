@@ -22,8 +22,7 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.delegate = self
+            locationManager.delegate = self
     }
     
     
@@ -38,6 +37,22 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     }
     
     
+    @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
+        let longitude = selectedMapItem?.placemark.coordinate.longitude
+        let latitude = selectedMapItem?.placemark.coordinate.latitude
+        let regionDistance: CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Place Name"
+        mapItem.openInMaps(launchOptions: options)
+    
+}
     
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
@@ -62,9 +77,6 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     
 }
 
-
-
-
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
@@ -72,10 +84,7 @@ extension MapViewController: MKMapViewDelegate{
         let region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
         mapView.setRegion(region, animated: true)
         
-        
-        
-        
-        search(for: "pizza")
+        search()
     }
 }
 

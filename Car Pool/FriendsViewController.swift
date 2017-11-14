@@ -28,10 +28,7 @@ class FriendsViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindFromAddnewVC(segue: UIStoryboardSegue) {
-        tableView.reloadData()
-        
-    }
+  
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
@@ -69,13 +66,13 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var friendView: UIView!
     @IBOutlet weak var friendNameLabel: UILabel!
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        friendView.layer.borderColor = UIColor.blue.cgColor
-        friendView.layer.cornerRadius = 5
-        friendView.layer.borderWidth = 1
-        
-        }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        friendView.layer.borderColor = UIColor.blue.cgColor
+//        friendView.layer.cornerRadius = 5
+//        friendView.layer.borderWidth = 1
+//        
+//        }
     
 }

@@ -28,31 +28,27 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapViewController, let mapView = sender as? UITextField {
-//            mapVC.textfield = mapView
+           //mapVC.textfield = mapView
         }
     }
     
+    var selectedMapItem: MKMapItem?
+    var mapItems: [MKMapItem] = []
     var location = CLLocation()
     let locationManager = CLLocationManager()
-    var locationSelected: [MKMapItem] = []
     var selectedDate = Date()
-    var mapItems: [MKMapItem] = []
-    var selectedMapItem: MKMapItem?
+    var locationSelected: [MKMapItem] = []
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         datePicker.minimumDate = Date()
-//        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.requestAlwaysAuthorization()
-//        if CLLocationManager.locationServicesEnabled() {
-////            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            locationManager.startUpdatingLocation()
-//        }
-        
-            locationManager.delegate = self
+        locationManager.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,19 +70,6 @@ class CreateTripViewController: UIViewController {
         }
     }
     
-    func search(for query: String) {
-        let searchRequest = MKLocalSearchRequest()
-        searchRequest.naturalLanguageQuery = query
-        
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
-            guard let response = response else { return }
-            print(response.mapItems)
-            self.mapItems = response.mapItems
-            self.performSegue(withIdentifier: "SegueToResultsTableVC", sender: self)
-        }
-    }
-    
     
     @IBAction func onDatePicked(_ sender: UIDatePicker) {
         selectedDate = sender.date
@@ -104,14 +87,27 @@ class CreateTripViewController: UIViewController {
         mapVC.selectedMapItem = selectedMapItem
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: (Any?) {
-//        if let locationsTableVC = segue.destination as? ResultsViewController {
-//            locationsTableVC.mapItems = mapItems
-//        }
-//        if let mapVC = segue.destination as? MapViewController {
-//            mapVC.selectedMapItem = selectedMapItem
-//        }
-//    }
+    
+    
+    
+    
+    func search(for query: String) {
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = query
+        
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            print(response.mapItems)
+            self.mapItems = response.mapItems
+            self.performSegue(withIdentifier: "SegueToResultsTableVC", sender: self)
+        }
+    }
+    
+    @IBAction func unwindFromResultsVC(segue: UIStoryboardSegue) {
+        selectedMapItem = (segue.source as! ResultsViewController).selectedMapItem
+        locationTextField.text = selectedMapItem?.name
+    }
     
     
     func createTrip() {

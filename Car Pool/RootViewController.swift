@@ -15,7 +15,6 @@ class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
     
-    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var allEventsSegmentedControl: UISegmentedControl!
     

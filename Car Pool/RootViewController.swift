@@ -48,9 +48,7 @@ class RootViewController: UITableViewController {
 //        let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
 //    }
     
-    @IBAction func onFriendsPressed(_ sender: UIBarButtonItem) {
-        
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController {

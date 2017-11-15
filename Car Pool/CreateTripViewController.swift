@@ -5,11 +5,10 @@
 //  Created by joshua dodd on 11/6/17.
 //  Copyright © 2017 Laurie Zipperer. All rights reserved.
 //
-
 import UIKit
 import CarpoolKit
 import MapKit
-import PromiseKit
+
 
 class CreateTripViewController: UIViewController {
     
@@ -21,9 +20,9 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var submitButton: UIButton!
-    
-    @IBOutlet weak var showMapViewButton: UIButton!
+    //    @IBOutlet weak var submitButton: UIButton!
+    //
+    //    @IBOutlet weak var showMapViewButton: UIButton!
     
     @IBOutlet weak var pickupDropoffSegmentedControll: UISegmentedControl!
     
@@ -33,7 +32,7 @@ class CreateTripViewController: UIViewController {
     let locationManager = CLLocationManager()
     var selectedDate = Date()
     var locationSelected: [MKMapItem] = []
-    var selectedDate = Date()
+    // var selectedDate = Date()
     var selectedMapItem: MKMapItem?
     var mapItems: [MKMapItem] = []
     var child: Child?
@@ -44,9 +43,9 @@ class CreateTripViewController: UIViewController {
         super.viewDidLoad()
         
         datePicker.minimumDate = Date()
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.requestAlwaysAuthorization()
-        locationManager.requestLocation()
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.requestAlwaysAuthorization()
+//        locationManager.requestLocation()
         locationManager.delegate = self
     }
     
@@ -59,6 +58,15 @@ class CreateTripViewController: UIViewController {
             
         } else {
             locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let  ResultsTableVC = segue.destination as? ResultsViewController {
+            ResultsTableVC.mapItems = mapItems
+        }
+        if let mapVC = segue.destination as? MapViewController {
+            mapVC.selectedMapItem = selectedMapItem
         }
     }
     
@@ -75,9 +83,18 @@ class CreateTripViewController: UIViewController {
     }
     
     
+    
     @IBAction func onConfirmedPressed(_ sender: UIButton) {
         createTrip()
+        eventTitleTextField.text = ""
+        datePicker.date = Date()
+        childrenTextField.text = ""
+        locationTextField.text = ""
     }
+    
+    
+    //TODO: Add @IBAction for childrenTextField (onChildrenTextEntered)
+    
     
     
     @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
@@ -103,14 +120,6 @@ class CreateTripViewController: UIViewController {
     }
     
     
-    //TODO: Add @IBAction for childrenTextField (onChildrenTextEntered)
-    
-    @IBAction func onDatePicked(_ sender: UIDatePicker) {
-        selectedDate = sender.date
-    }
-    
-    //TODO: Add @IBAction for locationTextField (onLocationTextEntered)
-    
     @IBAction func onSubmitButtonPressed(_ sender: UIButton) {
         if eventDescription != ""{
             API.createTrip(eventDescription: description, eventTime: datePicker.date, eventLocation: location) { result in
@@ -129,17 +138,13 @@ class CreateTripViewController: UIViewController {
                 }
             }
         }
+    }
+    
     @IBAction func unwindFromResultsVC(segue: UIStoryboardSegue) {
         selectedMapItem = (segue.source as! ResultsViewController).selectedMapItem
         locationTextField.text = selectedMapItem?.name
     }
     
-    
-    @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
-        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewSegue") as! MapViewController
-        mapVC.accessibilityActivate()
-        mapVC.selectedMapItem = selectedMapItem
-    }
     
     //     API.createTrip(eventDescription: eventTitleTextField!, eventTime: datePicker.date, eventLocation: location) { (result) in
     
@@ -184,20 +189,6 @@ class CreateTripViewController: UIViewController {
             }
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let  ResultsTableVC = segue.destination as? ResultsViewController {
-            ResultsTableVC.mapItems = mapItems
-        }
-        if let mapVC = segue.destination as? MapViewController {
-           mapVC.selectedMapItem = selectedMapItem
-        }
-    }
-    
-    @IBAction func unwindFromLocationsTableVC(segue: UIStoryboardSegue) {
-        selectedMapItem = (segue.source as! ResultsViewController).selectedMapItem
-        locationTextField.text = selectedMapItem?.name
-    }
 }
 
 
@@ -218,6 +209,5 @@ extension CreateTripViewController: CLLocationManagerDelegate {
         print(error)
     }
 }
-
 
 

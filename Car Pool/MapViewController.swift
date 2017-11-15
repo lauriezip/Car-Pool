@@ -14,6 +14,7 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var searchBarView: UISearchBar!
     
     
     let locationManager = CLLocationManager()

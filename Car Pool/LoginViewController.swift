@@ -8,15 +8,13 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
+
 
 let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification")
 
 class LoginViewController: UIViewController{
     
     var activityIndicator: UIActivityIndicatorView!
-    
-    
     
     
     
@@ -41,6 +39,12 @@ class LoginViewController: UIViewController{
         self.view.addSubview(activityIndicator)
         
     }
+    
+//    @IBAction func actionSignup(_ sender: Any) {
+//        let appDelegateTemp = UIApplication.shared.delegate as? AppDelegate
+//        appDelegateTemp?.window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+//    }
+    
     
     @IBAction func loginSignupSegmentChanged(_ sender: UISegmentedControl) {
         switch loginSignUpSegment.selectedSegmentIndex {

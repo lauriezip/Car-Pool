@@ -6,65 +6,48 @@
 //  Copyright © 2017 Laurie Zipperer. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 import CarpoolKit
 
-class AddFriendsViewController: UITableViewController {
-    @IBOutlet weak var searchTextField: UITextField!
-    
-    var friends: [User] = []
+class AddFriendsViewController: UITableViewController, UISearchBarDelegate {
+    var friendsList: [CarpoolKit.User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "backGroundimage2"))
-        
-        
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
-    }
-    
-    @IBAction func onSearchFieldReturn(_ sender: UITextField) {
-        API.search(forUsersWithName: sender.text!) { (result) in
-            switch result{
-                
-            case .success(let downloadedFriends):
-                self.friends = downloadedFriends
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        API.search(forUsersWithName: searchBar.text!) { (result) in
+            switch result {
+            case .success(let friends):
+                self.friendsList = friends
                 self.tableView.reloadData()
-                print(self.friends)
             case .failure(let error):
-                print("\nError getting Users:", error)
+                print(error)
             }
         }
-        searchTextField.text = ""
     }
     
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        API.add(friend: friendsList[indexPath.row])
+        friendsList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendSearch", for: indexPath) as! AddFriendCell
-        
-        cell.friendNameLabel.text = friends[indexPath.row].name
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchFriends", for: indexPath)
+        cell.textLabel?.text = friendsList[indexPath.row].name
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        API.add(friend: friends[indexPath.row])
-        performSegue(withIdentifier: "UnwindFromAddFriends", sender: self)
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Select friends by tapping on the name"
     }
     
-}
-
-class AddFriendCell: UITableViewCell {
-    
-    @IBOutlet weak var friendNameLabel: UILabel!
-    @IBOutlet weak var addFriendView: UIView!
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendsList.count
+    }
     
 }

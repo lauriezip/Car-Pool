@@ -8,7 +8,7 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
+
 
 class FriendsViewController: UITableViewController {
     
@@ -69,7 +69,7 @@ class FriendsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Swipe to delete"
+        return ""
     }
     
 }

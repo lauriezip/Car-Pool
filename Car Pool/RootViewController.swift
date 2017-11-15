@@ -8,20 +8,19 @@
 
 import UIKit
 import CarpoolKit
-import FirebaseCommunity
 
 
 class RootViewController: UITableViewController {
     
-    var trips: [Trip] = []
-    
-    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var allEventsSegmentedControl: UISegmentedControl!
     
-    @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-        
-    }
+   
+    var trips: [Trip] = []
+    var savedTrips: [Trip] = []
+    var children: [Child] = []
+    var user: User?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,15 @@ class RootViewController: UITableViewController {
                 print(error)
             }
         }
+    }
+
+    
+//    @IBAction func onLoginPressed(_ sender: UIBarButtonItem) {
+//        let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+//    }
+    
+    @IBAction func onFriendsPressed(_ sender: UIBarButtonItem) {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
@@ -51,7 +59,7 @@ class RootViewController: UITableViewController {
     @IBAction func onEventsControlPressed(_ sender: UISegmentedControl) {
         switch allEventsSegmentedControl.selectedSegmentIndex {
         case 0:
-            API.observeTrips(sender: self) { (result) in
+            API.observeTheTripsOfMyFriends(sender: self) { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips
@@ -82,32 +90,22 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-//        if allEventsSegmentedControl.selectedSegmentIndex == 0 {
-            if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "*_ Anonymous Event _*"
-            } else {
-                cell.textLabel?.text = trips[indexPath.row].event.description
-            }
-//        } else if allEventsSegmentedControl.selectedSegmentIndex == 1 {
-//            if trips[indexPath.row].event.description == "" {
-//                cell.textLabel?.text = "* Anonymous Event *"
-//            } else {
-//                cell.textLabel?.text = trips[indexPath.row].event.description
-//            }
-//        }
+        //        if allEventsSegmentedControl.selectedSegmentIndex == 0 {
+        if trips[indexPath.row].event.description == "" {
+            cell.textLabel?.text = "*_ Anonymous Event _*"
+        } else {
+            cell.textLabel?.text = trips[indexPath.row].event.description
+        }
+        //        } else if allEventsSegmentedControl.selectedSegmentIndex == 1 {
+        //            if trips[indexPath.row].event.description == "" {
+        //                cell.textLabel?.text = "* Anonymous Event *"
+        //            } else {
+        //                cell.textLabel?.text = trips[indexPath.row].event.description
+        //            }
+        //        }
         return cell
     }
-    // TODO? unwindFromCreateTripVC(segue: UIStoryboardSegue) {
 }
 
-    
-
-extension RootViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
-        API.search(forUsersWithName: searchBar.text!) { (result) in
-            print(result)
-        }
-    }
-}
 
 

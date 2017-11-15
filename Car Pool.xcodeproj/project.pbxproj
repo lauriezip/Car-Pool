@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AE6631FB0EF460019021D /* TripDetailViewController.swift */; };
 		4968CB051FBB3898006CFC6C /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB041FBB3898006CFC6C /* FriendsViewController.swift */; };
-		4968CB071FBB3FBB006CFC6C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB061FBB3FBB006CFC6C /* SettingsTableViewController.swift */; };
 		497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */; };
 		497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */; };
 		497C4B5E1FB0E77E0074B6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */; };
@@ -28,7 +27,6 @@
 		1EF9BDB4E23EC6491521FA9E /* Pods-Car Pool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Pool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool.debug.xcconfig"; sourceTree = "<group>"; };
 		490AE6631FB0EF460019021D /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		4968CB041FBB3898006CFC6C /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		4968CB061FBB3FBB006CFC6C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		497C4B551FB0E77E0074B6C2 /* Car Pool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +40,6 @@
 		911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		91466F6A1FB4C59400601B28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		91466F6C1FB4E94400601B28 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		91838D8C1FB4F59100130858 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9187CE941FB1007200354FE5 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 				4968CB041FBB3898006CFC6C /* FriendsViewController.swift */,
 				497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */,
 				911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */,
-				91838D8C1FB4F59100130858 /* TabBarViewController.swift */,
 				91466F6A1FB4C59400601B28 /* LoginViewController.swift */,
 				91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */,
 				497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */,

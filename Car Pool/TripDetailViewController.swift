@@ -40,6 +40,7 @@ class TripDetailViewController: UIViewController {
         dropoffDriverLabel.text = "DropOff Driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
         dateLabel.text = "Date/Time: " + formatter.string(from: trip.event.time)
         
+        
         if pickupDriverLabel.text == "PickUp Driver: Unclaimed" {
             claimPickupButton.backgroundColor = UIColor.red
         } else {

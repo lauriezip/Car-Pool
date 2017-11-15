@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func onLoginPressed(_ sender: Any) {
+    @IBAction func onLoginPressed(_ sender: UIButton) {
         if emailTextField.text != nil, passwordTextField.text != nil {
             if loginSignUpSegment.selectedSegmentIndex == 0 {
                 API.signIn(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in

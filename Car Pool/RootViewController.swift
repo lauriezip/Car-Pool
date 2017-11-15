@@ -1,11 +1,3 @@
-//
-//  RootViewController.swift
-//  Car Pool
-//
-//  Created by Laurie Zipperer on 11/6/17.
-//  Copyright © 2017 Laurie Zipperer. All rights reserved.
-//
-
 import UIKit
 import CarpoolKit
 
@@ -30,11 +22,7 @@ class RootViewController: UITableViewController {
             }
         }
     }
-
     
-//    @IBAction func onLoginPressed(_ sender: UIBarButtonItem) {
-//        let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController {

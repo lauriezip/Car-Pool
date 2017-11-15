@@ -20,6 +20,13 @@ class RootViewController: UITableViewController {
     var savedTrips: [Trip] = []
     var children: [Child] = []
     var user: User?
+    @IBAction func onLoginPressed(_ sender: UIBarButtonItem) {
+           let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+    }
+    
+    @IBAction func onFriendsPressed(_ sender: UIBarButtonItem) {
+        
+    }
     
     
     override func viewDidLoad() {

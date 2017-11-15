@@ -16,7 +16,9 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var pickupDriverLabel: UILabel!
     
+    
     @IBOutlet weak var dropoffDriverLabel: UILabel!
+    
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -36,9 +38,9 @@ class TripDetailViewController: UIViewController {
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, YYYY h:mm a"
-        pickupDriverLabel.text = "PickUp Driver: " + (trip.pickUp?.driver.name ?? "Unclaimed")
-        dropoffDriverLabel.text = "DropOff Driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
-        dateLabel.text = "Date/Time: " + formatter.string(from: trip.event.time)
+        dropoffDriverLabel.text = "Drop off driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
+        dateLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        pickupDriverLabel.text = "Pick up driver: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         
         
         if pickupDriverLabel.text == "PickUp Driver: Unclaimed" {
@@ -66,7 +68,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             API.unclaimPickUp(trip: self.trip, completion: { (error) in
-                print("error")
+                print(error)
             })
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -80,7 +82,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimDropoffButton.backgroundColor = UIColor.white
             API.claimDropOff(trip: self.trip) { (error) in
-                print("error")
+                print(error)
             }
         }))
         alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in

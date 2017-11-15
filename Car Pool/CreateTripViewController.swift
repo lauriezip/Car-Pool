@@ -31,6 +31,7 @@ class CreateTripViewController: UIViewController {
     var eventDescription: String?
     var location = CLLocation()
     let locationManager = CLLocationManager()
+    var selectedDate = Date()
     var locationSelected: [MKMapItem] = []
     var selectedDate = Date()
     var selectedMapItem: MKMapItem?
@@ -67,6 +68,25 @@ class CreateTripViewController: UIViewController {
             search(for: locationTextField.text!)
         }
     }
+    
+    
+    @IBAction func onDatePicked(_ sender: UIDatePicker) {
+        selectedDate = sender.date
+    }
+    
+    
+    @IBAction func onConfirmedPressed(_ sender: UIButton) {
+        createTrip()
+    }
+    
+    
+    @IBAction func onShowMapViewButtonPressed(_ sender: UIButton) {
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
+        mapVC.accessibilityActivate()
+        mapVC.selectedMapItem = selectedMapItem
+    }
+    
+    
     
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
@@ -109,6 +129,9 @@ class CreateTripViewController: UIViewController {
                 }
             }
         }
+    @IBAction func unwindFromResultsVC(segue: UIStoryboardSegue) {
+        selectedMapItem = (segue.source as! ResultsViewController).selectedMapItem
+        locationTextField.text = selectedMapItem?.name
     }
     
     

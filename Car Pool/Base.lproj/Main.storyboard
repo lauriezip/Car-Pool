@@ -56,9 +56,10 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="Xp9-0Z-wgc">
-                            <rect key="frame" x="101" y="7" width="173" height="30"/>
+                            <rect key="frame" x="76" y="7" width="191" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
+                                <segment title="Scheduled Events"/>
                                 <segment title="All Events"/>
                                 <segment title="My Events"/>
                             </segments>
@@ -66,9 +67,9 @@
                                 <action selector="onEventsControlPressed:" destination="Ove-8C-ygP" eventType="valueChanged" id="QBn-Cz-2FO"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Login" id="Mge-kb-oSY">
+                        <barButtonItem key="rightBarButtonItem" title="Add Friends" id="Mge-kb-oSY">
                             <connections>
-                                <segue destination="STq-TZ-gB8" kind="show" id="aRu-Tz-h11"/>
+                                <segue destination="EHv-gE-fOm" kind="show" id="EvK-ce-pNR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,19 +131,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvR-A6-ljc">
-                                <rect key="frame" x="149" y="562" width="76" height="30"/>
+                                <rect key="frame" x="149" y="560" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Trip"/>
                                 <connections>
                                     <segue destination="OXH-QN-OZD" kind="show" id="Lpu-uo-pv2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCo-yv-ihP">
-                                <rect key="frame" x="279" y="562" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Friends"/>
-                                <connections>
-                                    <segue destination="EHv-gE-fOm" kind="show" id="BsD-cp-PNs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -177,6 +170,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EHv-gE-fOm" id="s6G-72-qnn"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchFriends" id="W9d-bb-mdZ">
@@ -240,7 +236,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-3Q-CG1">
-                                <rect key="frame" x="16" y="114" width="343" height="29"/>
+                                <rect key="frame" x="16" y="70" width="343" height="29"/>
                                 <segments>
                                     <segment title="Login"/>
                                     <segment title="Signup"/>
@@ -250,31 +246,32 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-JZ-tuR">
-                                <rect key="frame" x="16" y="155" width="343" height="30"/>
+                                <rect key="frame" x="16" y="111" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i8u-hu-hvZ">
-                                <rect key="frame" x="16" y="201" width="343" height="30"/>
+                                <rect key="frame" x="16" y="157" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PjK-zF-24a">
-                                <rect key="frame" x="16" y="250" width="343" height="30"/>
+                                <rect key="frame" x="16" y="206" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-X3-axb">
-                                <rect key="frame" x="16" y="297" width="343" height="30"/>
+                                <rect key="frame" x="16" y="253" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3d-rY-1ho">
-                                <rect key="frame" x="94" y="371" width="187" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3d-rY-1ho">
+                                <rect key="frame" x="41" y="371" width="308" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -284,11 +281,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZJx-qo-Em1" firstAttribute="bottom" secondItem="E3d-rY-1ho" secondAttribute="bottom" constant="222" id="0Bh-1M-ypK"/>
                             <constraint firstItem="YdG-X3-axb" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="16" id="1VN-Hg-rER"/>
                             <constraint firstItem="PjK-zF-24a" firstAttribute="top" secondItem="i8u-hu-hvZ" secondAttribute="bottom" constant="19" id="5Ip-3D-Sl3"/>
                             <constraint firstItem="ZJx-qo-Em1" firstAttribute="trailing" secondItem="YdG-X3-axb" secondAttribute="trailing" constant="16" id="8SH-wK-9Sf"/>
-                            <constraint firstItem="ZJx-qo-Em1" firstAttribute="trailing" secondItem="E3d-rY-1ho" secondAttribute="trailing" constant="163" id="9UV-MS-Hu4"/>
                             <constraint firstItem="PjK-zF-24a" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="16" id="IfY-h4-qFr"/>
                             <constraint firstItem="ZJx-qo-Em1" firstAttribute="trailing" secondItem="HSc-3Q-CG1" secondAttribute="trailing" constant="16" id="MHh-vk-DGr"/>
                             <constraint firstItem="i8u-hu-hvZ" firstAttribute="top" secondItem="rr2-JZ-tuR" secondAttribute="bottom" constant="16" id="NZj-d2-B67"/>
@@ -296,12 +291,10 @@
                             <constraint firstItem="YdG-X3-axb" firstAttribute="top" secondItem="PjK-zF-24a" secondAttribute="bottom" constant="17" id="OK1-WG-mmK"/>
                             <constraint firstItem="rr2-JZ-tuR" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="16" id="OQv-Gp-Taj"/>
                             <constraint firstItem="i8u-hu-hvZ" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="16" id="WHP-dE-pKE"/>
-                            <constraint firstItem="E3d-rY-1ho" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="163" id="bdT-9J-JwY"/>
                             <constraint firstItem="ZJx-qo-Em1" firstAttribute="trailing" secondItem="rr2-JZ-tuR" secondAttribute="trailing" constant="16" id="cQq-X2-zzc"/>
                             <constraint firstItem="ZJx-qo-Em1" firstAttribute="trailing" secondItem="PjK-zF-24a" secondAttribute="trailing" constant="16" id="dPK-33-Evc"/>
                             <constraint firstItem="HSc-3Q-CG1" firstAttribute="leading" secondItem="ZJx-qo-Em1" secondAttribute="leading" constant="16" id="oUC-Rk-gGf"/>
                             <constraint firstItem="rr2-JZ-tuR" firstAttribute="top" secondItem="HSc-3Q-CG1" secondAttribute="bottom" constant="13" id="rOV-Va-gdj"/>
-                            <constraint firstItem="E3d-rY-1ho" firstAttribute="top" secondItem="YdG-X3-axb" secondAttribute="bottom" constant="38" id="vGx-mT-nkE"/>
                             <constraint firstItem="HSc-3Q-CG1" firstAttribute="top" secondItem="ZJx-qo-Em1" secondAttribute="top" constant="50" id="w0s-64-m8r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZJx-qo-Em1"/>
@@ -327,19 +320,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textField key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search Friends" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="BKz-2M-wCh">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="onSearchFieldReturn:" destination="wWa-at-fEZ" eventType="editingDidEnd" id="3Lz-hd-4IY"/>
-                            </connections>
-                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriends" id="bzI-hW-TF4" customClass="AddFriendCell" customModule="Car_Pool" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bzI-hW-TF4" id="eNo-Uy-igE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -354,9 +337,6 @@
                     </tableView>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchTextField" destination="BKz-2M-wCh" id="Yu8-KK-bRX"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teO-fn-hun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -385,10 +365,14 @@
                             <outlet property="delegate" destination="BOY-vH-Zw9" id="9uJ-8U-w6J"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="bGY-xx-tX9" kind="unwind" identifier="UnwindToCreatTripVC" unwindAction="unwindFromResultsVCWithSegue:" id="ebd-Qe-VC4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkz-ol-jq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bGY-xx-tX9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="-427"/>
+            <point key="canvasLocation" x="-282" y="-405"/>
         </scene>
         <!--CreateTripViewController-->
         <scene sceneID="rIT-6a-g7S">
@@ -508,12 +492,10 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="MapViewSegue" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-Mw-aok">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="18t-ig-cr1" id="LV7-eC-uBu"/>
+                                </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3S3-gJ-wYY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mYi-DI-dvP"/>
@@ -528,7 +510,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="0UO-Mw-aok" id="swM-si-uyk"/>
-                        <outlet property="searchBarView" destination="3S3-gJ-wYY" id="eHz-Xe-CDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzj-vG-QHH" userLabel="First Responder" sceneMemberID="firstResponder"/>

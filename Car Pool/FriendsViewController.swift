@@ -69,7 +69,7 @@ class FriendsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return "Swipe to Delete"
     }
     
 }

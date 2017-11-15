@@ -35,8 +35,11 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+        let region = MKCoordinateRegionMakeWithDistance(selectedMapItem!.coordinate, 10000, 10000)
+        mapView.setRegion(region, animated: true)
+        mapView.addAnnotation(selectedMapItem!)
     }
-    
+
     
     @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
         let longitude = selectedMapItem?.placemark.coordinate.longitude
@@ -76,17 +79,6 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
         self.mapView.addAnnotation((self.selectedMapItem?.placemark)!)
     }
     
-}
-
-extension MapViewController: MKMapViewDelegate{
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
-        mapView.setRegion(coordinateRegion, animated: true)
-        let region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
-        mapView.setRegion(region, animated: true)
-        
-        search()
-    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {

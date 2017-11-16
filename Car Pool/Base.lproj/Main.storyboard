@@ -55,8 +55,16 @@
                                                 <segue destination="EHv-gE-fOm" kind="show" id="Bb9-mU-v8l"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-8V-XfD">
+                                            <rect key="frame" x="82" y="6" width="62" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Message"/>
+                                            <connections>
+                                                <segue destination="a9j-fM-yxQ" kind="show" id="5la-RQ-rZ8"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdy-ov-Q2a">
-                                            <rect key="frame" x="135" y="6" width="88" height="30"/>
+                                            <rect key="frame" x="167" y="7" width="88" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Create a Trip">
                                                 <color key="titleColor" red="0.99199885129928589" green="0.4022446870803833" blue="0.021328780800104141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,6 +121,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZN-UQ-qu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="408.80000000000001" y="264.91754122938534"/>
+        </scene>
+        <!--Setting Table View Controller-->
+        <scene sceneID="IvM-6c-Kb4">
+            <objects>
+                <tableViewController id="wIa-np-18c" customClass="SettingTableViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Yy-5b-JVj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="c3r-ug-Cyy">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c3r-ug-Cyy" id="ARB-r3-4Jr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wIa-np-18c" id="enD-Kc-kpA"/>
+                            <outlet property="delegate" destination="wIa-np-18c" id="Vem-JF-UHp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csf-9x-iYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="397" y="926"/>
         </scene>
         <!--TripDetailViewController-->
         <scene sceneID="C1r-DS-A8I">
@@ -227,6 +263,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bnv-qm-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1834" y="584"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="eTq-nh-WFV">
+            <objects>
+                <tableViewController id="a9j-fM-yxQ" customClass="MessagesViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TcJ-og-lVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xdG-90-9ty">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHe-Ux-j4b">
+                                    <rect key="frame" x="8" y="12" width="170" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYf-St-Z63">
+                                    <rect key="frame" x="202" y="12" width="165" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dqe-lN-IVC">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dqe-lN-IVC" id="GgE-wF-hb6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a9j-fM-yxQ" id="tEH-7v-1Hr"/>
+                            <outlet property="delegate" destination="a9j-fM-yxQ" id="Uan-fo-qbA"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="inviteLabel" destination="QHe-Ux-j4b" id="58l-kb-cqd"/>
+                        <outlet property="logoutLabel" destination="mYf-St-Z63" id="I6F-Dr-4Hs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMO-dv-Eq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2656.8000000000002" y="496.10194902548727"/>
         </scene>
         <!--Add Friends-->
         <scene sceneID="OzU-ZO-Xks">
@@ -519,7 +608,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onConfirmedPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="lhe-CR-NcU"/>
-                                    <segue destination="BOY-vH-Zw9" kind="show" id="wtB-2M-N9r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUp-Kf-hNP">
@@ -534,7 +622,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8J-wz-exl">
-                                <rect key="frame" x="29" y="497" width="298" height="21"/>
+                                <rect key="frame" x="77" y="497" width="250" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99104982614517212" green="0.9963950514793396" blue="0.99171203374862671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText"/>
@@ -593,13 +681,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mYi-DI-dvP"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Directions" id="gba-I0-mo9">
-                            <connections>
-                                <action selector="onDirectionsPressed:" destination="18t-ig-cr1" id="J6U-r2-HeO"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="0UO-Mw-aok" id="swM-si-uyk"/>
@@ -667,7 +749,4 @@
     <resources>
         <image name="GWIP (GA)" width="540" height="252"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="3EY-eT-NvM"/>
-    </inferredMetricsTieBreakers>
 </document>

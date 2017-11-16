@@ -17,6 +17,8 @@
 		49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F520A31FBB1AD2003C184B /* NavigationController.swift */; };
 		911DAF9E1FB6142300EF69E7 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */; };
 		911DAFA01FB62B0200EF69E7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */; };
+		9135FBD91FBE1A3400C78497 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135FBD81FBE1A3400C78497 /* SettingViewController.swift */; };
+		9135FBDB1FBE1B5100C78497 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135FBDA1FBE1B5100C78497 /* MessagesViewController.swift */; };
 		9187CE951FB1007200354FE5 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187CE941FB1007200354FE5 /* CreateTripViewController.swift */; };
 		9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */; };
 		91BB1F4D1FB3662100AB6A98 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */; };
@@ -38,6 +40,8 @@
 		8940F49EFA6045E41400D1C9 /* Pods_Car_Pool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Pool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		9135FBD81FBE1A3400C78497 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		9135FBDA1FBE1B5100C78497 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		91466F6A1FB4C59400601B28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		91466F6C1FB4E94400601B28 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		9187CE941FB1007200354FE5 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
@@ -100,11 +104,13 @@
 				497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */,
 				497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */,
 				49F520A31FBB1AD2003C184B /* NavigationController.swift */,
+				9135FBD81FBE1A3400C78497 /* SettingViewController.swift */,
 				490AE6631FB0EF460019021D /* TripDetailViewController.swift */,
 				911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */,
 				9187CE941FB1007200354FE5 /* CreateTripViewController.swift */,
 				4968CB041FBB3898006CFC6C /* FriendsViewController.swift */,
 				497C4B5C1FB0E77E0074B6C2 /* Main.storyboard */,
+				9135FBDA1FBE1B5100C78497 /* MessagesViewController.swift */,
 				911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */,
 				91466F6A1FB4C59400601B28 /* LoginViewController.swift */,
 				91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */,
@@ -269,9 +275,11 @@
 				49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */,
 				497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */,
 				497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */,
+				9135FBD91FBE1A3400C78497 /* SettingViewController.swift in Sources */,
 				911DAF9E1FB6142300EF69E7 /* ResultsViewController.swift in Sources */,
 				91BB1F4D1FB3662100AB6A98 /* MapViewController.swift in Sources */,
 				9187CE951FB1007200354FE5 /* CreateTripViewController.swift in Sources */,
+				9135FBDB1FBE1B5100C78497 /* MessagesViewController.swift in Sources */,
 				911DAFA01FB62B0200EF69E7 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,91 @@
+//
+//  MessagesViewController.swift
+//  Car Pool
+//
+//  Created by joshua dodd on 11/16/17.
+//  Copyright © 2017 Laurie Zipperer. All rights reserved.
+//
+
+import UIKit
+import CarpoolKit
+import MapKit
+import MessageUI
+
+class MessagesViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
+    
+    @IBOutlet weak var inviteLabel: UILabel!
+    @IBOutlet weak var logoutLabel: UILabel!
+    
+    let messageController = MFMessageComposeViewController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        messageController.messageComposeDelegate = self
+        
+        API.fetchCurrentUser { (result) in
+            switch result {
+            case .success(let user):
+                self.logoutLabel.text = "Logout \(user.name!)"
+            case .failure(let error):
+                self.logoutLabel.text = "Logout"
+                print(error)
+            }
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch (result) {
+//                    case MessageComposeResultCancelled.rawValue:
+//                        print("Message was cancelled")
+//                        self.dismiss(animated: true, completion: nil)
+//                    case MessageComposeResultFailed.rawValue:
+//                        print("Message failed")
+//                        self.dismiss(animated: true, completion: nil)
+//                    case MessageComposeResultSent.rawValue:
+//                        print("Message was sent")
+//                        self.dismiss(animated: true, completion: nil)
+//                    default:
+//                    break;
+        case .cancelled:
+            print("Message was cancelled")
+        case .sent:
+            print("Message was sent")
+        case .failed:
+            print("Message failed")
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 3 {
+            if MFMessageComposeViewController.canSendText() == true {
+                let recipients: [String] = ["1500"]
+                let messageController = MFMessageComposeViewController()
+                messageController.messageComposeDelegate = self
+                messageController.recipients = recipients
+                messageController.body = "Would you like to join CarPool with me."
+                self.present(messageController, animated: true, completion: nil)
+            } else {
+                //handle text messaging not available
+            }
+            
+        }
+        else if indexPath.section == 0 && indexPath.row == 4 {
+            let latitude: CLLocationDegrees = 37.2
+            let longitude: CLLocationDegrees = 22.9
+            let regionDistance: CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = "Place Name"
+            mapItem.openInMaps(launchOptions: options)
+        }
+    }
+}

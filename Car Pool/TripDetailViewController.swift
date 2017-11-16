@@ -39,7 +39,7 @@ class TripDetailViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, YYYY h:mm a"
         dropoffDriverLabel.text = "Drop off driver: " + (trip.dropOff?.driver.name ?? "Unclaimed")
-        //dateLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        dateLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
         pickupDriverLabel.text = "Pick up driver: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         
         

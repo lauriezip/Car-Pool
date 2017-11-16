@@ -24,10 +24,6 @@ class RootViewController: UITableViewController {
     }
     
     
-    //    @IBAction func onLoginPressed(_ sender: UIBarButtonItem) {
-    //        let LoginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-    //    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if let tripDetailVC = segue.destination as? TripDetailViewController {
             let indexPath = tableView.indexPathForSelectedRow

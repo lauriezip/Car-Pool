@@ -11,8 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArialRoundedMTBold.ttf">
-            <string>ArialRoundedMTBold</string>
+        <array key="Optima.ttc">
+            <string>Optima-Regular</string>
+        </array>
+        <array key="Palatino.ttc">
+            <string>Palatino-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -146,15 +149,56 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="066-AV-zV8">
                                 <rect key="frame" x="238" y="480" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accept Dropoff"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <state key="normal" title="Claim Dropoff">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onClaimDropoffPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="Ttn-cl-lE3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
-                                <rect key="frame" x="32" y="485" width="99" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvR-A6-ljc">
+                                <rect key="frame" x="149" y="560" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accept Pickup"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <state key="normal" title="Create Trip">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OXH-QN-OZD" kind="show" id="Lpu-uo-pv2"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-qo-gRK">
+                                <rect key="frame" x="16" y="88" width="343" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="qXr-ba-hdU"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op1-Rb-wsS">
+                                <rect key="frame" x="16" y="229" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRL-XQ-aew">
+                                <rect key="frame" x="16" y="170" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjm-wx-Vfh">
+                                <rect key="frame" x="16" y="111" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-9d-4Bs">
+                                <rect key="frame" x="32" y="482" width="99" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <state key="normal" title="Claim Pickup">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onClaimPickupPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="vO5-F2-OfO"/>
                                 </connections>
@@ -162,22 +206,62 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AnZ-q1-B3u" firstAttribute="top" secondItem="RAp-fc-1oA" secondAttribute="top" constant="8" id="B73-sW-VsX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AnZ-q1-B3u" secondAttribute="trailing" constant="16" id="adc-wz-LWI"/>
-                            <constraint firstItem="AnZ-q1-B3u" firstAttribute="leading" secondItem="5cL-Lk-i69" secondAttribute="leadingMargin" constant="16" id="kGZ-Df-RNd"/>
+                            <constraint firstItem="RRL-XQ-aew" firstAttribute="top" secondItem="hjm-wx-Vfh" secondAttribute="bottom" constant="38" id="96y-Wg-gtt"/>
+                            <constraint firstItem="RRL-XQ-aew" firstAttribute="top" secondItem="hjm-wx-Vfh" secondAttribute="bottom" constant="38" id="DBn-kX-92i"/>
+                            <constraint firstItem="hjm-wx-Vfh" firstAttribute="top" secondItem="RAp-fc-1oA" secondAttribute="top" constant="47" id="IK9-A7-VHd"/>
+                            <constraint firstItem="RRL-XQ-aew" firstAttribute="leading" secondItem="RAp-fc-1oA" secondAttribute="leading" constant="16" id="QQR-w8-X6o"/>
+                            <constraint firstItem="RAp-fc-1oA" firstAttribute="trailing" secondItem="RRL-XQ-aew" secondAttribute="trailing" constant="16" id="SHz-2f-SsN"/>
+                            <constraint firstItem="op1-Rb-wsS" firstAttribute="leading" secondItem="RAp-fc-1oA" secondAttribute="leading" constant="16" id="Ylr-KR-1tW"/>
+                            <constraint firstItem="RAp-fc-1oA" firstAttribute="trailing" secondItem="op1-Rb-wsS" secondAttribute="trailing" constant="16" id="bhq-H0-2A2"/>
+                            <constraint firstItem="op1-Rb-wsS" firstAttribute="top" secondItem="RRL-XQ-aew" secondAttribute="bottom" constant="38" id="eFQ-SV-JPv"/>
+                            <constraint firstItem="RAp-fc-1oA" firstAttribute="trailing" secondItem="hjm-wx-Vfh" secondAttribute="trailing" constant="16" id="eUl-Cn-Vno"/>
+                            <constraint firstItem="hjm-wx-Vfh" firstAttribute="leading" secondItem="RAp-fc-1oA" secondAttribute="leading" constant="16" id="gxj-T3-kyh"/>
+                            <constraint firstItem="aeu-qo-gRK" firstAttribute="top" secondItem="RAp-fc-1oA" secondAttribute="top" constant="24" id="scU-kg-3hM"/>
+                            <constraint firstItem="op1-Rb-wsS" firstAttribute="top" secondItem="RRL-XQ-aew" secondAttribute="bottom" constant="38" id="vTC-pw-W5g"/>
+                            <constraint firstItem="aeu-qo-gRK" firstAttribute="leading" secondItem="RAp-fc-1oA" secondAttribute="leading" constant="16" id="w5i-nu-bJJ"/>
+                            <constraint firstItem="RAp-fc-1oA" firstAttribute="trailing" secondItem="aeu-qo-gRK" secondAttribute="trailing" constant="16" id="x5K-o3-wSn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RAp-fc-1oA"/>
                     </view>
                     <connections>
                         <outlet property="claimDropoffButton" destination="066-AV-zV8" id="aP3-A3-4GH"/>
                         <outlet property="claimPickupButton" destination="R0q-9d-4Bs" id="G7H-NJ-XuB"/>
-                        <outlet property="dropoffDriverLabel" destination="bbe-EV-QpY" id="e1g-WJ-tTR"/>
-                        <outlet property="pickupDriverLabel" destination="U3O-LW-Rlv" id="9aR-uD-I1n"/>
+                        <outlet property="dateLabel" destination="hjm-wx-Vfh" id="1oy-L9-doI"/>
+                        <outlet property="dropoffDriverLabel" destination="RRL-XQ-aew" id="o34-sx-DcS"/>
+                        <outlet property="pickupDriverLabel" destination="op1-Rb-wsS" id="Clz-xj-bms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gQ-kv-1Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="265"/>
+            <point key="canvasLocation" x="1101.5999999999999" y="264.91754122938534"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="pTg-re-LQA">
+            <objects>
+                <tableViewController storyboardIdentifier="CommentsVC" id="bVW-6N-x5A" customClass="CommentsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6xe-ig-HjY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Na9-fK-Rpt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Na9-fK-Rpt" id="7le-dj-LoW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bVW-6N-x5A" id="Bqf-pA-2SY"/>
+                            <outlet property="delegate" destination="bVW-6N-x5A" id="Mzo-7B-5ng"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bnv-qm-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834" y="584"/>
         </scene>
         <!--Add Friends-->
         <scene sceneID="OzU-ZO-Xks">
@@ -226,12 +310,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GWIP (GA)" translatesAutoresizingMaskIntoConstraints="NO" id="lse-Fh-eKS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.41466459631919861" blue="0.0050831125117838383" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8e-Kx-zGs">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8e-Kx-zGs">
                                 <rect key="frame" x="139" y="513" width="96" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="18"/>
                                 <state key="normal" title="Drive on!">
                                     <color key="titleColor" red="0.99217242002487183" green="0.99210232496261597" blue="0.9963647723197937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -258,43 +342,47 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-3Q-CG1">
                                 <rect key="frame" x="16" y="70" width="343" height="29"/>
+                                <color key="backgroundColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Login"/>
                                     <segment title="Signup"/>
                                 </segments>
+                                <color key="tintColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="loginSignupSegmentChanged:" destination="STq-TZ-gB8" eventType="valueChanged" id="GsX-hV-qkx"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-JZ-tuR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-JZ-tuR">
                                 <rect key="frame" x="16" y="111" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i8u-hu-hvZ">
                                 <rect key="frame" x="16" y="157" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PjK-zF-24a">
                                 <rect key="frame" x="16" y="206" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-X3-axb">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-X3-axb">
                                 <rect key="frame" x="16" y="253" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3d-rY-1ho">
                                 <rect key="frame" x="41" y="371" width="308" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Login"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.0" green="0.19143679738044739" blue="0.24431067705154419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onLoginPressed:" destination="STq-TZ-gB8" eventType="touchUpInside" id="h9e-97-jQQ"/>
                                 </connections>
@@ -403,8 +491,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-RW-DjN">
+                            <datePicker clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-RW-DjN">
                                 <rect key="frame" x="16" y="216" width="343" height="162"/>
+                                <color key="backgroundColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="hBm-1g-wbn"/>
                                 </constraints>
@@ -417,10 +507,12 @@
                             </datePicker>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="es0-0c-a2W">
                                 <rect key="frame" x="126" y="438" width="123" height="29"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Pickup"/>
                                     <segment title="Dropoff"/>
                                 </segments>
+                                <color key="tintColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location :" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6L-nB-7Tb">
                                 <rect key="frame" x="16" y="159" width="343" height="30"/>
@@ -452,9 +544,24 @@
                                     <action selector="onConfirmedPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="oSO-WI-RCo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUp-Kf-hNP">
-                                <rect key="frame" x="264" y="548" width="63" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-08-QUi">
+                                <rect key="frame" x="29" y="545" width="55" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onConfirmedPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="lhe-CR-NcU"/>
+                                    <segue destination="BOY-vH-Zw9" kind="show" id="wtB-2M-N9r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUp-Kf-hNP">
+                                <rect key="frame" x="280" y="552" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="MapView"/>
                                 <connections>
                                     <action selector="onShowMapViewButtonPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="agK-Y7-Oux"/>
@@ -478,6 +585,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e5Y-RW-DjN" firstAttribute="trailing" secondItem="EXu-bl-3pa" secondAttribute="trailingMargin" id="2XW-yu-vbI"/>
                             <constraint firstItem="e5Y-RW-DjN" firstAttribute="leading" secondItem="Y6L-nB-7Tb" secondAttribute="leading" id="5kw-My-wyI"/>

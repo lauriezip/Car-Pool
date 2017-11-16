@@ -6,4 +6,18 @@
 //  Copyright © 2017 Laurie Zipperer. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CarpoolKit
+
+class AddSomeCommentsViewController: UIViewController {
+    
+    var trip: Trip?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    @IBOutlet weak var commentsView: CommentsCell!
+    
+}

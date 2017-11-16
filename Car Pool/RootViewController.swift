@@ -44,7 +44,7 @@ class RootViewController: UITableViewController {
         
         switch allEventsSegmentedControl.selectedSegmentIndex {
         case 0:
-            API.observeTheTripsOfMyFriends(sender: self) { (result) in
+            API.observeTheTripsOfMyFriends(sender: self, observer: { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips
@@ -52,7 +52,7 @@ class RootViewController: UITableViewController {
                 case .failure(let error):
                     print(error)
                 }
-            }
+            })
         case 1:
             API.observeMyTripCalendar(sender: self) { result in
                 switch result {
@@ -63,6 +63,16 @@ class RootViewController: UITableViewController {
                     print(#function, error)
                 }
             }
+        case 2:
+            API.observeMyTrips(sender: self, observer: { (result) in
+                switch result {
+                case .success(let trips):
+                    self.trips = trips
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            })
         default:
             break
         }

@@ -20,9 +20,7 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    //    @IBOutlet weak var submitButton: UIButton!
-    //
-    //    @IBOutlet weak var showMapViewButton: UIButton!
+    @IBOutlet weak var tripConfirmedLabel: UILabel!
     
     @IBOutlet weak var pickupDropoffSegmentedControll: UISegmentedControl!
     
@@ -32,7 +30,7 @@ class CreateTripViewController: UIViewController {
     let locationManager = CLLocationManager()
     var selectedDate = Date()
     var locationSelected: [MKMapItem] = []
-    // var selectedDate = Date()
+
     var selectedMapItem: MKMapItem?
     var mapItems: [MKMapItem] = []
     var child: Child?
@@ -43,9 +41,6 @@ class CreateTripViewController: UIViewController {
         super.viewDidLoad()
         
         datePicker.minimumDate = Date()
-//        self.locationManager.requestWhenInUseAuthorization()
-//        self.locationManager.requestAlwaysAuthorization()
-//        locationManager.requestLocation()
         locationManager.delegate = self
     }
     
@@ -90,6 +85,7 @@ class CreateTripViewController: UIViewController {
         datePicker.date = Date()
         childrenTextField.text = ""
         locationTextField.text = ""
+        tripConfirmedLabel.text = "Your trip has been confirmed!    "
     }
     
     
@@ -175,11 +171,11 @@ class CreateTripViewController: UIViewController {
                         })
                         if self.pickupDropoffSegmentedControll.selectedSegmentIndex == 0 {
                             API.claimDropOff(trip: createTrip, completion: { (error) in
-                                print(error!)
+                                print(error)
                             })
                         } else if self.pickupDropoffSegmentedControll.selectedSegmentIndex == 1 {
                             API.claimPickUp(trip: createTrip, completion: { (error) in
-                                print(error!)
+                                print(error)
                             })
                         }
                     case .failure(let error):
@@ -202,7 +198,7 @@ extension CreateTripViewController: MKMapViewDelegate {
 extension CreateTripViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else { return }
-        //mapView.showsUserLocation = true
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

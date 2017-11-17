@@ -15,6 +15,7 @@
 		497C4B601FB0E77E0074B6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B5F1FB0E77E0074B6C2 /* Assets.xcassets */; };
 		497C4B631FB0E77E0074B6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497C4B611FB0E77E0074B6C2 /* LaunchScreen.storyboard */; };
 		49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F520A31FBB1AD2003C184B /* NavigationController.swift */; };
+		9111AA3E1FBF2BA900FE1EAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91466F6A1FB4C59400601B28 /* LoginViewController.swift */; };
 		911DAF9E1FB6142300EF69E7 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DAF9D1FB6142300EF69E7 /* ResultsViewController.swift */; };
 		911DAFA01FB62B0200EF69E7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DAF9F1FB62B0200EF69E7 /* PhotoViewController.swift */; };
 		9135FBD91FBE1A3400C78497 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135FBD81FBE1A3400C78497 /* SettingViewController.swift */; };
@@ -270,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9111AA3E1FBF2BA900FE1EAC /* LoginViewController.swift in Sources */,
 				490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */,
 				4968CB051FBB3898006CFC6C /* FriendsViewController.swift in Sources */,
 				49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */,
@@ -419,10 +421,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BM7BYR83P8;
+                DEVELOPMENT_TEAM = BM7BYR83P8;
 				INFOPLIST_FILE = "Car Pool/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lauriezip.Car-Pool";
+                PRODUCT_BUNDLE_IDENTIFIER = "io.github.lauriezip.Car-Pool";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,10 +437,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BM7BYR83P8;
+                DEVELOPMENT_TEAM = BM7BYR83P8;
 				INFOPLIST_FILE = "Car Pool/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lauriezip.Car-Pool";
+                PRODUCT_BUNDLE_IDENTIFIER = "io.github.lauriezip.Car-Pool";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

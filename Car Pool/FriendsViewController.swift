@@ -19,7 +19,7 @@ class FriendsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.tableView.reloadSections([0], with: .bottom)
+//         self.tableView.reloadSections([0], with: .bottom)
         
         myFriendsShown()
     }

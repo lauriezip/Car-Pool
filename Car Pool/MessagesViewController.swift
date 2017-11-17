@@ -13,15 +13,16 @@ import MessageUI
 
 class MessagesViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
-    @IBOutlet weak var inviteLabel: UILabel!
+    @IBOutlet weak var addFriend: UILabel!
     @IBOutlet weak var logoutLabel: UILabel!
     
-    let messageController = MFMessageComposeViewController()
+    let composeVC = MFMessageComposeViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messageController.messageComposeDelegate = self
+        composeVC.messageComposeDelegate = self
         
         API.fetchCurrentUser { (result) in
             switch result {
@@ -37,17 +38,7 @@ class MessagesViewController: UITableViewController, MFMessageComposeViewControl
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
         switch (result) {
-//                    case MessageComposeResultCancelled.rawValue:
-//                        print("Message was cancelled")
-//                        self.dismiss(animated: true, completion: nil)
-//                    case MessageComposeResultFailed.rawValue:
-//                        print("Message failed")
-//                        self.dismiss(animated: true, completion: nil)
-//                    case MessageComposeResultSent.rawValue:
-//                        print("Message was sent")
-//                        self.dismiss(animated: true, completion: nil)
-//                    default:
-//                    break;
+            
         case .cancelled:
             print("Message was cancelled")
         case .sent:
@@ -62,30 +53,10 @@ class MessagesViewController: UITableViewController, MFMessageComposeViewControl
         if indexPath.section == 0 && indexPath.row == 3 {
             if MFMessageComposeViewController.canSendText() == true {
                 let recipients: [String] = ["1500"]
-                let messageController = MFMessageComposeViewController()
-                messageController.messageComposeDelegate = self
-                messageController.recipients = recipients
-                messageController.body = "Would you like to join CarPool with me."
-                self.present(messageController, animated: true, completion: nil)
-            } else {
-                //handle text messaging not available
+                composeVC.recipients = recipients
+                composeVC.body = "Would you like to join CarPool with me."
+                self.present(composeVC, animated: true, completion: nil)
             }
-            
-        }
-        else if indexPath.section == 0 && indexPath.row == 4 {
-            let latitude: CLLocationDegrees = 37.2
-            let longitude: CLLocationDegrees = 22.9
-            let regionDistance: CLLocationDistance = 10000
-            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-            ]
-            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = "Place Name"
-            mapItem.openInMaps(launchOptions: options)
         }
     }
 }

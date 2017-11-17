@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4901F1931FBE26B100196B37 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901F1921FBE26B100196B37 /* CommentsTableViewController.swift */; };
 		490AE6641FB0EF460019021D /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AE6631FB0EF460019021D /* TripDetailViewController.swift */; };
-		491D9DC61FBF75790010D273 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D9DC51FBF75790010D273 /* AddFriendsViewController.swift */; };
 		496143E01FBDC8D700CF6E72 /* AddSomeCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496143DF1FBDC8D700CF6E72 /* AddSomeCommentsViewController.swift */; };
 		4968CB051FBB3898006CFC6C /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB041FBB3898006CFC6C /* FriendsViewController.swift */; };
 		497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */; };
@@ -25,6 +24,7 @@
 		9135FBDB1FBE1B5100C78497 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135FBDA1FBE1B5100C78497 /* MessagesViewController.swift */; };
 		9187CE951FB1007200354FE5 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187CE941FB1007200354FE5 /* CreateTripViewController.swift */; };
 		9197AB001FB249C3007FFAA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */; };
+		9198F73D1FBF34610029FCF2 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198F73C1FBF34610029FCF2 /* AddFriendsViewController.swift */; };
 		91BB1F4D1FB3662100AB6A98 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */; };
 		ACA55E406B5B405983566F13 /* Pods_Car_Pool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8940F49EFA6045E41400D1C9 /* Pods_Car_Pool.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,8 @@
 		91466F6C1FB4E94400601B28 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		9187CE941FB1007200354FE5 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		9197AAFF1FB249C3007FFAA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9198F73C1FBF34610029FCF2 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		9198F7461FBF3B4A0029FCF2 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ../../../.Trash/CommentsViewController.swift; sourceTree = "<group>"; };
 		91BB1F4C1FB3662100AB6A98 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D9E31221AE25EE7143392B34 /* Pods-Car Pool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Pool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car Pool/Pods-Car Pool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				497C4B581FB0E77E0074B6C2 /* AppDelegate.swift */,
+				9198F73C1FBF34610029FCF2 /* AddFriendsViewController.swift */,
 				497C4B5A1FB0E77E0074B6C2 /* RootViewController.swift */,
 				491D9DC51FBF75790010D273 /* AddFriendsViewController.swift */,
 				49F520A31FBB1AD2003C184B /* NavigationController.swift */,
@@ -136,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				91466F6C1FB4E94400601B28 /* test.swift */,
+				9198F7461FBF3B4A0029FCF2 /* CommentsViewController.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -286,7 +290,7 @@
 				4901F1931FBE26B100196B37 /* CommentsTableViewController.swift in Sources */,
 				49F520A41FBB1AD2003C184B /* NavigationController.swift in Sources */,
 				497C4B5B1FB0E77E0074B6C2 /* RootViewController.swift in Sources */,
-				491D9DC61FBF75790010D273 /* AddFriendsViewController.swift in Sources */,
+				9198F73D1FBF34610029FCF2 /* AddFriendsViewController.swift in Sources */,
 				497C4B591FB0E77E0074B6C2 /* AppDelegate.swift in Sources */,
 				9135FBD91FBE1A3400C78497 /* SettingViewController.swift in Sources */,
 				911DAF9E1FB6142300EF69E7 /* ResultsViewController.swift in Sources */,

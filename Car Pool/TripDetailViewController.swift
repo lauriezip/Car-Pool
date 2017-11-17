@@ -28,6 +28,11 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var claimDropoffButton: UIButton!
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! CommentsTableViewController
+        vc.trip = trip
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

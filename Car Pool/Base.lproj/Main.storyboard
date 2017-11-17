@@ -93,6 +93,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99679046869277954" green="0.64585030078887939" blue="0.0" alpha="0.22332512842465754" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99679046869277954" green="0.64585030078887939" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="s3O-Y2-8RI" kind="show" identifier="ViewEventDetailSegue" id="Rxi-b7-Vsv"/>
                                 </connections>
@@ -189,6 +191,7 @@
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <state key="normal" title="Claim Pickup">
                                     <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClaimPickupPressed:" destination="s3O-Y2-8RI" eventType="touchUpInside" id="vO5-F2-OfO"/>
@@ -339,7 +342,7 @@
         <scene sceneID="Slo-1A-jxd">
             <objects>
                 <viewController storyboardIdentifier="CommentsCell" id="181-U1-1rn" customClass="AddSomeCommentsViewController" customModule="Car_Pool" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K51-En-yJp">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="K51-En-yJp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -355,6 +358,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
                         </subviews>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eCU-tW-SCL"/>
                     </view>
                     <connections>
@@ -373,6 +377,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xdG-90-9ty">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -402,12 +407,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.63275617361068726" blue="0.0" alpha="0.2364351455479452" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="delegate" destination="a9j-fM-yxQ" id="KVt-SG-7B3"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addFriend" destination="QHe-Ux-j4b" id="58l-kb-cqd"/>
                         <outlet property="logoutLabel" destination="mYf-St-Z63" id="I6F-Dr-4Hs"/>
@@ -425,6 +433,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.99679046869277954" green="0.64585030078887939" blue="0.0" alpha="0.22332512842465754" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search friends" id="Lvg-Ok-XG5">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -440,7 +449,10 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W9d-bb-mdZ" id="SWx-1v-4T9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.99679046869999999" green="0.64585030080000005" blue="0.0" alpha="0.22332512839999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.99679046869277954" green="0.64585030078887939" blue="0.0" alpha="0.22332512842465754" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99511474370956421" green="0.59074705839157104" blue="0.012164229527115822" alpha="0.23103060787671234" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -541,7 +553,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-yY-3OP">
-                                <rect key="frame" x="281" y="617" width="46" height="50"/>
+                                <rect key="frame" x="303" y="415" width="46" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="next"/>
                                 <connections>
@@ -570,8 +582,8 @@
                         <viewLayoutGuide key="safeArea" id="ZJx-qo-Em1"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="rr2-JZ-tuR" id="IOK-ns-mgY"/>
-                        <outlet property="loginSignUpSegment" destination="HSc-3Q-CG1" id="NET-xu-ehG"/>
+                        <outlet property="emailTextField" destination="rr2-JZ-tuR" id="0JH-S0-91T"/>
+                        <outlet property="loginSignUpSegment" destination="HSc-3Q-CG1" id="Z0s-Ox-WZM"/>
                         <outlet property="onLoginButton" destination="E3d-rY-1ho" id="DGW-UL-fb2"/>
                         <outlet property="passwordConfirmTextField" destination="PjK-zF-24a" id="dLO-g5-not"/>
                         <outlet property="passwordTextField" destination="i8u-hu-hvZ" id="AeX-pa-3ML"/>
@@ -598,6 +610,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99907964468002319" green="0.59475582838058472" blue="0.0050532473251223564" alpha="0.28272153253424659" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -628,6 +641,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99478894472122192" green="0.55647248029708862" blue="0.033192940056324005" alpha="0.24301690924657535" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -637,6 +651,7 @@
                     </tableView>
                     <connections>
                         <segue destination="bGY-xx-tX9" kind="unwind" identifier="UnwindToCreatTripVC" unwindAction="unwindFromResultsVCWithSegue:" id="ebd-Qe-VC4"/>
+                        <segue destination="bGY-xx-tX9" kind="unwind" unwindAction="unwindFromResultsVCWithSegue:" id="fRk-gY-aOx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkz-ol-jq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,30 +667,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGrMap" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-Kw-sYu">
-                                <rect key="frame" x="17" y="10" width="343" height="548"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGrMap copy" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-Kw-sYu">
+                                <rect key="frame" x="16" y="24" width="343" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.69097805023193359" blue="0.31972178816795349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cND-kT-KCr">
-                                <rect key="frame" x="29" y="48" width="318" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGh-d6-wBm">
-                                <rect key="frame" x="29" y="171" width="318" height="30"/>
+                                <rect key="frame" x="28" y="200" width="318" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onLocationTextEntered:" destination="OXH-QN-OZD" eventType="editingDidEnd" id="hUa-IJ-axX"/>
+                                    <action selector="onLocationTextEntered:" destination="OXH-QN-OZD" eventType="editingDidEndOnExit" id="EmH-9e-CHZ"/>
+                                    <segue destination="BOY-vH-Zw9" kind="show" identifier="SegueToResultsTableVC" id="ePb-Eq-7Tv"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-yf-IfW">
-                                <rect key="frame" x="28" y="112" width="318" height="30"/>
+                                <rect key="frame" x="28" y="162" width="318" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
@@ -693,19 +702,21 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0L-JF-ESQ">
-                                <rect key="frame" x="326" y="580" width="20" height="22"/>
+                                <rect key="frame" x="339" y="601" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="iconMap"/>
                                 <connections>
                                     <action selector="onShowMapViewButtonPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="82i-Hc-ly5"/>
+                                    <segue destination="18t-ig-cr1" kind="show" id="jDx-pC-uDO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQx-SZ-eY3">
-                                <rect key="frame" x="16" y="576" width="53" height="30"/>
+                                <rect key="frame" x="16" y="597" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <state key="normal" title="Confirm">
                                     <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onConfirmedPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="BWR-0a-ihC"/>
@@ -728,8 +739,15 @@
                                 </segments>
                                 <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cND-kT-KCr">
+                                <rect key="frame" x="28" y="124" width="318" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="0.8969532400589102" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="kdV-5F-Z09"/>
                     </view>
                     <connections>
@@ -797,6 +815,7 @@
                                         </searchBar>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99679046869277954" green="0.64585030078887939" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -831,7 +850,7 @@
     </scenes>
     <resources>
         <image name="GWIP (GA)" width="540" height="252"/>
-        <image name="backGrMap" width="786" height="1024"/>
+        <image name="backGrMap copy" width="393" height="512"/>
         <image name="iconComment" width="500" height="500"/>
         <image name="iconMap" width="50" height="50"/>
         <image name="townImage" width="204" height="127"/>

@@ -87,7 +87,7 @@ class CreateTripViewController: UIViewController {
         datePicker.date = Date()
         childrenTextField.text = ""
         locationTextField.text = ""
-        tripConfirmedLabel.text = "Your trip has been confirmed!    "
+        tripConfirmedLabel.text = "Your trip has been confirmed!"
     }
     
     

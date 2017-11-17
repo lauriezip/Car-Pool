@@ -20,8 +20,7 @@ extension Date {
 
 class CommentsTableViewController: UITableViewController {
 
-    var comments: [Comment] = []
-    var trip: Trip?
+    var trip: Trip!
     
     
     override func viewDidLoad() {
@@ -42,14 +41,14 @@ class CommentsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+        return trip.comments.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Comments" , for: indexPath) as? CommentsCell
-        cell?.userNameLabel.text = comments[indexPath.row].user.name
-        cell?.commentLabel.text = comments[indexPath.row].body
-        cell?.dateLabel.text = comments[indexPath.row].time.dayHour
+        cell?.userNameLabel.text = trip.comments[indexPath.row].user.name
+        cell?.commentLabel.text = trip.comments[indexPath.row].body
+        cell?.dateLabel.text = trip.comments[indexPath.row].time.dayHour
         return cell!
         
     }

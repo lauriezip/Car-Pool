@@ -10,7 +10,6 @@ class RootViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clear
         
         API.observeTrips(sender: self) { (result) in
             switch result {

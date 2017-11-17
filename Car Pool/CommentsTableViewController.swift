@@ -64,6 +64,11 @@ class CommentsTableViewController: UITableViewController {
     @IBAction func unwindFromAddSomeComments(segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+    }
+    
 }
 
 class CommentsCell: UITableViewCell {

@@ -1,7 +1,6 @@
 import UIKit
 import CarpoolKit
 
-
 class RootViewController: UITableViewController {
     
     @IBOutlet weak var allEventsSegmentedControl: UISegmentedControl!
@@ -9,8 +8,15 @@ class RootViewController: UITableViewController {
     var tripCalendar: API.TripCalendar?
     var trips: [Trip] = []
     
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        self.tableView.reloadData(effect: .roll)
+    //    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = UIColor.clear
         
         API.observeTrips(sender: self) { (result) in
             switch result {
@@ -74,6 +80,8 @@ class RootViewController: UITableViewController {
         }
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if allEventsSegmentedControl.selectedSegmentIndex == 0 {
             return trips.count
@@ -84,7 +92,7 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        
+        cell.contentView.backgroundColor = UIColor.clear
         if allEventsSegmentedControl.selectedSegmentIndex == 0 {
             cell.textLabel?.text = trips[indexPath.row].event.description
         } else {
@@ -109,3 +117,4 @@ class RootViewController: UITableViewController {
         }
     }
 }
+

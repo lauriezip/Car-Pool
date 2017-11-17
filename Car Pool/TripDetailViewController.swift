@@ -34,6 +34,11 @@ class TripDetailViewController: UIViewController {
         title = trip.event.description
         showTripDetails()
         
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: “bg.png”)
+//        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+//        self.view.insertSubview(backgroundImage, at: 0)
+        
     }
     
     func showTripDetails() {

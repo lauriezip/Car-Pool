@@ -24,6 +24,8 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var pickupDropoffSegmentedControll: UISegmentedControl!
     
+    
+    
     let trips: [Trip] = []
     var eventDescription: String?
     var location = CLLocation()

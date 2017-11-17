@@ -8,12 +8,6 @@ class RootViewController: UITableViewController {
     var tripCalendar: API.TripCalendar?
     var trips: [Trip] = []
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        self.tableView.reloadData(effect: .roll)
-    //    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.clear

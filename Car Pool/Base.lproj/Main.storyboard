@@ -40,7 +40,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                             <state key="normal" title="Friends">
-                                                <color key="titleColor" red="0.99199885129928589" green="0.4022446870803833" blue="0.021328780800104141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="wWa-at-fEZ" kind="show" id="zHq-kJ-1CC"/>
@@ -51,7 +51,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                             <state key="normal" title="Add Friends">
-                                                <color key="titleColor" red="0.99199885129928589" green="0.4022446870803833" blue="0.021328780800104141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="EHv-gE-fOm" kind="show" id="Bb9-mU-v8l"/>
@@ -62,18 +62,18 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                             <state key="normal" title="Message">
-                                                <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="a9j-fM-yxQ" kind="show" id="5la-RQ-rZ8"/>
+                                                <segue destination="a9j-fM-yxQ" kind="show" id="ptW-UR-HhQ"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdy-ov-Q2a">
                                             <rect key="frame" x="167" y="7" width="88" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
-                                            <state key="normal" title="Create a Trip">
-                                                <color key="titleColor" red="0.99199885129928589" green="0.4022446870803833" blue="0.021328780800104141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Create Trip">
+                                                <color key="titleColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="OXH-QN-OZD" kind="show" id="Fuw-ZP-la1"/>
@@ -114,7 +114,7 @@
                                 <segment title="All Events"/>
                                 <segment title="My Events"/>
                             </segments>
-                            <color key="tintColor" red="0.511790931224823" green="0.83467257022857666" blue="0.85157483816146851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onEventsControlPressed:" destination="Ove-8C-ygP" eventType="valueChanged" id="QBn-Cz-2FO"/>
                             </connections>
@@ -165,26 +165,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-qo-gRK">
-                                <rect key="frame" x="16" y="88" width="343" height="185"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="185" id="qXr-ba-hdU"/>
-                                </constraints>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op1-Rb-wsS">
-                                <rect key="frame" x="16" y="228" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="184" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRL-XQ-aew">
-                                <rect key="frame" x="16" y="169.5" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="125.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjm-wx-Vfh">
-                                <rect key="frame" x="16" y="111" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="67" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -214,11 +208,21 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-Nm-cVN">
                                 <rect key="frame" x="177" y="398" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="iconsComments"/>
+                                <state key="normal" image="iconComment"/>
                                 <connections>
                                     <segue destination="bVW-6N-x5A" kind="show" id="e7Q-Mk-dEa"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="townImage" translatesAutoresizingMaskIntoConstraints="NO" id="wLH-oT-7jj">
+                                <rect key="frame" x="0.0" y="451" width="375" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-qo-gRK">
+                                <rect key="frame" x="16" y="43" width="343" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="qXr-ba-hdU"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
@@ -265,9 +269,12 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5Q-E2-gjo">
-                                    <rect key="frame" x="307" y="-7" width="130" height="50"/>
+                                    <rect key="frame" x="238" y="8" width="137" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Comment" image="iconsComments"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="To Comment">
+                                        <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <segue destination="181-U1-1rn" kind="show" id="xvw-Oe-z7N"/>
                                     </connections>
@@ -326,7 +333,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bnv-qm-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="946.77661169415296"/>
+            <point key="canvasLocation" x="1102" y="925"/>
         </scene>
         <!--Add Some Comments View Controller-->
         <scene sceneID="Slo-1A-jxd">
@@ -489,12 +496,11 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-3Q-CG1">
                                 <rect key="frame" x="16" y="70" width="343" height="29"/>
-                                <color key="backgroundColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Login"/>
                                     <segment title="Signup"/>
                                 </segments>
-                                <color key="tintColor" red="0.044517656039999999" green="0.51248055479999999" blue="0.68199327259999998" alpha="0.73084332190000001" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="loginSignupSegmentChanged:" destination="STq-TZ-gB8" eventType="valueChanged" id="GsX-hV-qkx"/>
                                 </connections>
@@ -528,10 +534,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.0" green="0.19143679738044739" blue="0.24431067705154419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onLoginPressed:" destination="STq-TZ-gB8" eventType="touchUpInside" id="h9e-97-jQQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-yY-3OP">
+                                <rect key="frame" x="281" y="617" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="next"/>
+                                <connections>
+                                    <segue destination="Ove-8C-ygP" kind="show" id="YvY-tn-SFi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -639,26 +653,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGrMap" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-Kw-sYu">
-                                <rect key="frame" x="16" y="79" width="343" height="489"/>
+                                <rect key="frame" x="17" y="10" width="343" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.69097805023193359" blue="0.31972178816795349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cND-kT-KCr">
-                                <rect key="frame" x="29" y="96" width="318" height="30"/>
+                                <rect key="frame" x="29" y="48" width="318" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGh-d6-wBm">
+                                <rect key="frame" x="29" y="171" width="318" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onLocationTextEntered:" destination="OXH-QN-OZD" eventType="editingDidEnd" id="hUa-IJ-axX"/>
+                                </connections>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-yf-IfW">
-                                <rect key="frame" x="29" y="148" width="318" height="30"/>
+                                <rect key="frame" x="28" y="112" width="318" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uTl-dz-D7N">
-                                <rect key="frame" x="16" y="252" width="343" height="162"/>
+                                <rect key="frame" x="16" y="249" width="343" height="117"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.69097805023193359" blue="0.31972178816795349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="532631173.77013499">
@@ -687,8 +711,15 @@
                                     <action selector="onConfirmedPressed:" destination="OXH-QN-OZD" eventType="touchUpInside" id="BWR-0a-ihC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYb-WC-FzM">
+                                <rect key="frame" x="29" y="498" width="317" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b07-Zo-bYg">
-                                <rect key="frame" x="67" y="448" width="243" height="29"/>
+                                <rect key="frame" x="67" y="422" width="243" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
@@ -697,23 +728,6 @@
                                 </segments>
                                 <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYb-WC-FzM">
-                                <rect key="frame" x="29" y="498" width="317" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGh-d6-wBm">
-                                <rect key="frame" x="29" y="205" width="318" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="onLocationTextEntered:" destination="OXH-QN-OZD" eventType="editingDidEnd" id="hUa-IJ-axX"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.28627450980000002" blue="0.3803921569" alpha="0.8969532400589102" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="kdV-5F-Z09"/>
@@ -818,7 +832,12 @@
     <resources>
         <image name="GWIP (GA)" width="540" height="252"/>
         <image name="backGrMap" width="786" height="1024"/>
+        <image name="iconComment" width="500" height="500"/>
         <image name="iconMap" width="50" height="50"/>
-        <image name="iconsComments" width="50" height="50"/>
+        <image name="townImage" width="204" height="127"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YvY-tn-SFi"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.93725490199999995" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

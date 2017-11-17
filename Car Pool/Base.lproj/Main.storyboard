@@ -58,7 +58,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-8V-XfD">
                                             <rect key="frame" x="82" y="6" width="62" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Message"/>
+                                            <state key="normal" title="Message">
+                                                <color key="titleColor" red="0.99263066053390503" green="0.44738459587097168" blue="0.00067821040283888578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <segue destination="a9j-fM-yxQ" kind="show" id="5la-RQ-rZ8"/>
                                             </connections>
@@ -340,7 +342,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHe-Ux-j4b">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHe-Ux-j4b">
                                     <rect key="frame" x="8" y="12" width="170" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -368,12 +370,11 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="a9j-fM-yxQ" id="tEH-7v-1Hr"/>
-                            <outlet property="delegate" destination="a9j-fM-yxQ" id="Uan-fo-qbA"/>
+                            <outlet property="delegate" destination="a9j-fM-yxQ" id="KVt-SG-7B3"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="inviteLabel" destination="QHe-Ux-j4b" id="58l-kb-cqd"/>
+                        <outlet property="addFriend" destination="QHe-Ux-j4b" id="58l-kb-cqd"/>
                         <outlet property="logoutLabel" destination="mYf-St-Z63" id="I6F-Dr-4Hs"/>
                     </connections>
                 </tableViewController>
@@ -527,7 +528,7 @@
                         <viewLayoutGuide key="safeArea" id="ZJx-qo-Em1"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="rr2-JZ-tuR" id="qGA-T7-HgZ"/>
+                        <outlet property="emailTextField" destination="rr2-JZ-tuR" id="IOK-ns-mgY"/>
                         <outlet property="loginSignUpSegment" destination="HSc-3Q-CG1" id="NET-xu-ehG"/>
                         <outlet property="onLoginButton" destination="E3d-rY-1ho" id="DGW-UL-fb2"/>
                         <outlet property="passwordConfirmTextField" destination="PjK-zF-24a" id="dLO-g5-not"/>

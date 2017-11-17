@@ -1,10 +1,10 @@
-//
+
 //  LoginViewController.swift
 //  Car Pool
 //
 //  Created by joshua dodd on 11/9/17.
 //  Copyright © 2017 Laurie Zipperer. All rights reserved.
-//
+
 
 import UIKit
 import CarpoolKit
@@ -40,11 +40,6 @@ class LoginViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         
     }
-    
-//    @IBAction func actionSignup(_ sender: Any) {
-//        let appDelegateTemp = UIApplication.shared.delegate as? AppDelegate
-//        appDelegateTemp?.window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
-//    }
     
     
     @IBAction func loginSignupSegmentChanged(_ sender: UISegmentedControl) {
@@ -98,3 +93,4 @@ class LoginViewController: UIViewController {
     }
     
 }
+

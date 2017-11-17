@@ -14,9 +14,6 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var searchBarView: UISearchBar!
-    
-    
     let locationManager = CLLocationManager()
     var selectedMapItem: MKMapItem?
     
@@ -41,22 +38,22 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     }
 
     
-    @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
-        let longitude = selectedMapItem?.placemark.coordinate.longitude
-        let latitude = selectedMapItem?.placemark.coordinate.latitude
-        let regionDistance: CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "Place Name"
-        mapItem.openInMaps(launchOptions: options)
-    
-}
+//    @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
+//        let longitude = selectedMapItem?.placemark.coordinate.longitude
+//        let latitude = selectedMapItem?.placemark.coordinate.latitude
+//        let regionDistance: CLLocationDistance = 10000
+//        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
+//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+//        ]
+//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+//        let mapItem = MKMapItem(placemark: placemark)
+//        mapItem.name = "Place Name"
+//        mapItem.openInMaps(launchOptions: options)
+//
+//}
     
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()

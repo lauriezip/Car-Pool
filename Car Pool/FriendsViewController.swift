@@ -71,6 +71,6 @@ class FriendsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "List of Friends"
+        return "Current Friends"
     }
 }
